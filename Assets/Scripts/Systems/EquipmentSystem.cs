@@ -15,7 +15,6 @@ public class EquipmentSystem : MonoBehaviour {
 	void Start () {
 		armors = new Dictionary<string, Armor> ();
 	}
-		
 	public void EquipArmor(string name, Armor armor) {
 		if (armors.ContainsKey(name)) {
 			UnequipArmor(name);

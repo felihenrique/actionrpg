@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F27D6DBB-CB5C-1F5C-7996-1D26BA597097}</ProjectGuid>
+    <ProjectGuid>{1E87ABBE-38BA-1C93-CCF9-64B1CC59ED48}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,6 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Behaviour\Character.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
+     <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Armor.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Item.cs" />
@@ -54,6 +56,7 @@
      <Compile Include="Assets\Scripts\Input\MobileInput.cs" />
      <Compile Include="Assets\Scripts\Input\PCInput.cs" />
      <Compile Include="Assets\Scripts\PixelPerfectCamera.cs" />
+     <Compile Include="Assets\Scripts\Systems\EffectSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\HealthMpSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\InventorySystem.cs" />
