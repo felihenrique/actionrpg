@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Item {
 	public string tag;
-	public int id_icon;
+	public Sprite sprite;
 	public string name;
 	public string description;
 	public string animation_name;

@@ -28,7 +28,6 @@ public class Character : MonoBehaviour {
 		effectsystem = GetComponent<EffectSystem> ();
 		sprRenderer = GetComponent<SpriteRenderer> ();
 		_input_velocity = Vector2.zero;
-
 		healthmp.AddMaxHP (maxHP);
 		healthmp.AddMaxMP (maxMP);
 	}
@@ -57,10 +56,6 @@ public class Character : MonoBehaviour {
 			se.speedMultiplier = 3;
 			effectsystem.AddEffect(se);
 
-			var effects = effectsystem.getEffects ();
-			for (int i = 0; i < effects.Count; i++) {
-				Debug.Log (effects [i].duration);
-			} 
 		} else if (Input.GetKeyDown(KeyCode.K)) {
 			effectsystem.RemoveEffect ("Speed I");
 			effectsystem.RemoveEffect ("Envenenom I");
