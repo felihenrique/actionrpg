@@ -15,10 +15,10 @@ public class HealthMpSystem : MonoBehaviour {
 	public delegate void DeathHandler ();
 	// Caso o valor chamado nesse evento seja maior que zero o character ganhou hp, caso seja menor que zero o character tomou dano e caso
 	// seja = 0 o character se defendeu de um ataque
-	public event HpChangeHandler onHpChange;
-	public event MpChangeHandler onMpChange;
-	public event MaxHPChangeHandler onMaxHPChange;
-	public event MaxMPChangeHandler onMaxMPChange;
+	public event HpChangeHandler hpChange;
+	public event MpChangeHandler mpChange;
+	public event MaxHPChangeHandler maxHPChange;
+	public event MaxMPChangeHandler maxMPChange;
 	public event DeathHandler onDeath;
 
 	public void LoseHP(int quantity, int resistance) {
@@ -27,9 +27,11 @@ public class HealthMpSystem : MonoBehaviour {
 		hp -= damage;
 		if (hp < 0) {
 			hp = 0;
-			onDeath ();
+			if (onDeath != null) {
+				onDeath ();
+			}
 		}
-		onHpChange (hp - oldhp); 
+		hpChange (hp - oldhp); 
 	}
 
 	public void GainHP(int quantity) {
@@ -37,7 +39,9 @@ public class HealthMpSystem : MonoBehaviour {
 		hp += quantity;
 		if (hp > maxhp)
 			hp = maxhp;
-		onHpChange (hp - oldhp);
+		if (hpChange != null) {
+			hpChange (hp - oldhp);
+		}
 	}
 
 	public void LoseMP(int quantity) {
@@ -45,7 +49,9 @@ public class HealthMpSystem : MonoBehaviour {
 		mp -= quantity;
 		if (mp < 0)
 			mp = 0;
-		onMpChange (mp - oldmp);
+		if (mpChange != null) {
+			mpChange (mp - oldmp);
+		}
 	}
 
 	public void GainMP(int quantity) {
@@ -53,12 +59,17 @@ public class HealthMpSystem : MonoBehaviour {
 		mp += quantity;
 		if (mp > maxmp)
 			mp = maxmp;
-		onMpChange (mp - oldmp);
+		if (mpChange != null) {
+			mpChange (mp - oldmp);
+		}
 	}
 
 	public void AddMaxHP(int quantity) {
 		maxhp += quantity;
-		onMaxHPChange (quantity);
+		hp = maxhp;
+		if (maxHPChange != null) {
+			maxHPChange (quantity);
+		}
 	}
 
 	public void ReduceMaxHP(int quantity) {
@@ -66,12 +77,17 @@ public class HealthMpSystem : MonoBehaviour {
 		if (hp > maxhp) {
 			hp = maxhp;
 		}
-		onMaxHPChange (-quantity);
+		if (maxHPChange != null) {
+			maxHPChange (-quantity);
+		}
 	}
 
 	public void AddMaxMP(int quantity) {
 		maxmp += quantity;
-		onMaxMPChange (quantity);
+		mp = maxmp;
+		if (maxMPChange != null) {
+			maxMPChange (quantity);
+		}
 	}
 
 	public void ReduceMaxMP(int quantity) {
@@ -79,6 +95,25 @@ public class HealthMpSystem : MonoBehaviour {
 		if (mp > maxmp) {
 			mp = maxmp;
 		}
-		onMaxMPChange (-quantity);
+		if (maxMPChange != null) {
+			maxMPChange (-quantity);
+		}
+	}
+
+	public int getHP() {
+		return hp;
+	}
+
+	public int getMP() {
+		return mp;
+	}
+
+	public int getMaxHP() {
+		return maxhp;
+	}
+
+	public int getMaxMP() {
+		return maxmp;
 	}
 }
+

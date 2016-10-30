@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HpShow.cs" />
      <Compile Include="Assets\Scripts\Behaviour\Character.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />

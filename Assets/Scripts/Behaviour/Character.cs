@@ -2,21 +2,41 @@
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D), typeof(Animator))]
+[RequireComponent(typeof(HealthMpSystem), typeof(EffectSystem))]
 public class Character : MonoBehaviour {
 
 	public float moveSpeed;
+	public int maxHP;
+	public int maxMP;
+	public Color poisonDamageColor;
 
-	Vector2 _input_velocity;
 	Rigidbody2D rigid2D;
 	new Transform transform;
 	Animator animator;
+	HealthMpSystem healthmp;
+	EffectSystem effectsystem;
+	SpriteRenderer sprRenderer;
+
 	Vector2 cachedDirection;
+	Vector2 _input_velocity;
 	// Use this for initialization
 	void Start () {
 		transform = GetComponent<Transform> ();
 		animator = GetComponent<Animator> ();
 		rigid2D = GetComponent<Rigidbody2D> ();
+		healthmp = GetComponent<HealthMpSystem> ();
+		effectsystem = GetComponent<EffectSystem> ();
+		sprRenderer = GetComponent<SpriteRenderer> ();
 		_input_velocity = Vector2.zero;
+
+		healthmp.AddMaxHP (maxHP);
+		healthmp.AddMaxMP (maxMP);
+
+		Envenenon effenv = new Envenenon ();
+		effenv.damage = 3;
+		effenv.interval = 3;
+		effenv.duration = 15;
+		effectsystem.AddEffect (effenv);
 	}
 
 	// Update is called once per frame
@@ -27,6 +47,15 @@ public class Character : MonoBehaviour {
 		animator.SetFloat ("speed_x", cachedDirection.x);
 		animator.SetFloat ("speed_y", cachedDirection.y);
 		animator.SetBool ("moving", !(rigid2D.velocity == Vector2.zero));
+		sprRenderer.color = Color.Lerp (sprRenderer.color, Color.white, 0.1f);
+
+		if (Input.GetKeyDown(KeyCode.H)) {
+			Envenenon effenv = new Envenenon ();
+			effenv.damage = 3;
+			effenv.interval = 3;
+			effenv.duration = 15;
+			effectsystem.AddEffect (effenv);
+		}
 	}
 
 	void FixedUpdate() {
