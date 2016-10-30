@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Effect
@@ -9,6 +10,4 @@ public abstract class Effect
 	public float duration;
 	public abstract void ApplyEffect(GameObject obj);
 	public abstract void RemoveEffect();
-
-	protected float timePassed;
 }

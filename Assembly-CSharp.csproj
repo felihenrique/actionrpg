@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />
+     <Compile Include="Assets\Scripts\Database\Effects\Speed.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Armor.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Item.cs" />

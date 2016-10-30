@@ -14,30 +14,25 @@ public class Envenenon : Effect
 
 	public override void ApplyEffect (GameObject obj)
 	{
-		timePassed = 0;
 		hpmpSystem = obj.GetComponent<HealthMpSystem> ();
 		esystem = obj.GetComponent<EffectSystem> ();
 		sprRenderer = obj.GetComponent<SpriteRenderer> ();
 		character = obj.GetComponent<Character> ();
-
-		esystem.StartCoroutine (DoEffect());
+		esystem.StartCoroutine (DoVenenomEffect());
 	}
 
 	public override void RemoveEffect ()
 	{
-		
+		duration = 0;
 	}
 
-	IEnumerator DoEffect() {
-		sprRenderer.color = character.poisonDamageColor;
-		hpmpSystem.LoseHP (damage, 0);
-		yield return new WaitForSeconds (interval);
-		timePassed += interval;
-		if (timePassed >= duration) {
-			esystem.RemoveEffect (this);
-		} 
-		else {
-			esystem.StartCoroutine (DoEffect());
+	IEnumerator DoVenenomEffect() {
+		while (duration > 0) {
+			sprRenderer.color = character.poisonDamageColor;
+			hpmpSystem.LoseHP (damage, 0);
+			duration -= interval;
+			yield return new WaitForSeconds (interval);
 		}
+		esystem.RemoveEffect (this);
 	}
 }

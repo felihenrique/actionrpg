@@ -16,12 +16,20 @@ public class EffectSystem : MonoBehaviour {
 	}
 
 	public void AddEffect(Effect eff) {
-		Effect temp = effects.Find (delegate(Effect e) {
-			return e.GetType() == eff.GetType();
+		Effect temp = effects.Find ((Effect obj) => {
+			return eff.effectName.Equals(obj.effectName);
 		});
-		if (temp != null && temp.effectName == eff.effectName) {
-			temp.duration += eff.duration;
-		} else {
+
+		if (temp != null)
+		{
+			eff.duration += temp.duration;
+			effects.Remove (temp);
+			temp.RemoveEffect ();
+			eff.ApplyEffect (gameObject);
+			effects.Add (eff);
+		}
+		else 
+		{
 			effects.Add (eff);
 			eff.ApplyEffect (gameObject);
 			if (onEffectAdded != null) {
@@ -35,6 +43,15 @@ public class EffectSystem : MonoBehaviour {
 		eff.RemoveEffect ();
 		if (onEffectRemoved != null) {
 			onEffectRemoved (eff);
+		}
+	}
+
+	public void RemoveEffect(string effectname) {
+		Effect eff = effects.Find ((Effect obj) => {
+			return obj.effectName.Equals(effectname);
+		});
+		if (eff != null) {
+			RemoveEffect (eff);
 		}
 	}
 
