@@ -3,15 +3,15 @@ using System.Collections;
 
 public class HealthMpSystem : MonoBehaviour {
 
-	private int mp;
-	private int hp;
-	private int maxhp;
-	private int maxmp;
+	private float mp;
+	private float hp;
+	private float maxhp;
+	private float maxmp;
 
-	public delegate void HpChangeHandler (int quantity);
-	public delegate void MpChangeHandler (int quantity);
-	public delegate void MaxHPChangeHandler (int quantity);
-	public delegate void MaxMPChangeHandler (int quantity);
+	public delegate void HpChangeHandler (float quantity);
+	public delegate void MpChangeHandler (float quantity);
+	public delegate void MaxHPChangeHandler (float quantity);
+	public delegate void MaxMPChangeHandler (float quantity);
 	public delegate void DeathHandler ();
 	// Caso o valor chamado nesse evento seja maior que zero o character ganhou hp, caso seja menor que zero o character tomou dano e caso
 	// seja = 0 o character se defendeu de um ataque
@@ -21,9 +21,9 @@ public class HealthMpSystem : MonoBehaviour {
 	public event MaxMPChangeHandler maxMPChange;
 	public event DeathHandler onDeath;
 
-	public void LoseHP(int quantity, int resistance) {
-		int oldhp = hp;
-		int damage = quantity - resistance > 0 ? quantity - resistance : 0;
+	public void LoseHP(float quantity, float resistance) {
+		float oldhp = hp;
+		float damage = quantity - resistance > 0 ? quantity - resistance : 0;
 		hp -= damage;
 		if (hp < 0) {
 			hp = 0;
@@ -34,8 +34,8 @@ public class HealthMpSystem : MonoBehaviour {
 		hpChange (hp - oldhp); 
 	}
 
-	public void GainHP(int quantity) {
-		int oldhp = hp;
+	public void GainHP(float quantity) {
+		float oldhp = hp;
 		hp += quantity;
 		if (hp > maxhp)
 			hp = maxhp;
@@ -44,8 +44,8 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public void LoseMP(int quantity) {
-		int oldmp = mp;
+	public void LoseMP(float quantity) {
+		float oldmp = mp;
 		mp -= quantity;
 		if (mp < 0)
 			mp = 0;
@@ -54,8 +54,8 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public void GainMP(int quantity) {
-		int oldmp = mp;
+	public void GainMP(float quantity) {
+		float oldmp = mp;
 		mp += quantity;
 		if (mp > maxmp)
 			mp = maxmp;
@@ -64,7 +64,7 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public void AddMaxHP(int quantity) {
+	public void AddMaxHP(float quantity) {
 		maxhp += quantity;
 		hp = maxhp;
 		if (maxHPChange != null) {
@@ -72,7 +72,7 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public void ReduceMaxHP(int quantity) {
+	public void ReduceMaxHP(float quantity) {
 		maxhp -= quantity;
 		if (hp > maxhp) {
 			hp = maxhp;
@@ -82,7 +82,7 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public void AddMaxMP(int quantity) {
+	public void AddMaxMP(float quantity) {
 		maxmp += quantity;
 		mp = maxmp;
 		if (maxMPChange != null) {
@@ -90,7 +90,7 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public void ReduceMaxMP(int quantity) {
+	public void ReduceMaxMP(float quantity) {
 		maxmp -= quantity;
 		if (mp > maxmp) {
 			mp = maxmp;
@@ -100,19 +100,19 @@ public class HealthMpSystem : MonoBehaviour {
 		}
 	}
 
-	public int getHP() {
+	public float getHP() {
 		return hp;
 	}
 
-	public int getMP() {
+	public float getMP() {
 		return mp;
 	}
 
-	public int getMaxHP() {
+	public float getMaxHP() {
 		return maxhp;
 	}
 
-	public int getMaxMP() {
+	public float getMaxMP() {
 		return maxmp;
 	}
 }

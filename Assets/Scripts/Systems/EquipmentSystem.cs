@@ -4,29 +4,29 @@ using System.Collections.Generic;
 using System;
 
 public class EquipmentSystem : MonoBehaviour {
-	private Dictionary<string, Armor>  armors;
+	private Dictionary<Armor.ArmorType, Armor>  armors;
 
 	public delegate void EquipChangeHandler (Armor armor);
 
-	public event EquipChangeHandler onEquipAdd;
-	public event EquipChangeHandler onEquipRemove;
+	public event EquipChangeHandler EquipAdded;
+	public event EquipChangeHandler EquipRemoved;
 
-	// Use this for initialization
 	void Start () {
-		armors = new Dictionary<string, Armor> ();
-	}
-	public void EquipArmor(string name, Armor armor) {
-		if (armors.ContainsKey(name)) {
-			UnequipArmor(name);
-		}
-		armors.Add (name, armor);
-		onEquipAdd (armor);
+		armors = new Dictionary<Armor.ArmorType, Armor> ();
 	}
 
-	public void UnequipArmor(string name) {
-		if (armors.ContainsKey(name)) {
-			onEquipRemove (armors [name]);
-			armors.Remove (name);
+	public void EquipArmor(Armor.ArmorType type, Armor armor) {
+		if (armors.ContainsKey(type)) {
+			UnequipArmor(type);
+		}
+		armors.Add (type, armor);
+		EquipAdded (armor);
+	}
+
+	public void UnequipArmor(Armor.ArmorType type) {
+		if (armors.ContainsKey(type)) {
+			EquipRemoved (armors [type]);
+			armors.Remove (type);
 		}
 	}
 }
