@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour {
 
 	public Transform entityToFollow;
 	public float speed;
+	public float tolerance;
 
 	private new Transform transform;
 	// Use this for initialization
@@ -19,5 +20,8 @@ public class CameraFollow : MonoBehaviour {
 		pos.y = Mathf.Clamp (pos.y, 79.5f, 104.4f);
 		pos.z = transform.position.z;
 		transform.position = Vector3.Lerp (transform.position, pos, Time.deltaTime * speed);
+		if (Vector3.Distance(transform.position, pos) < tolerance) {
+			transform.position = pos;
+		}
 	}
 }

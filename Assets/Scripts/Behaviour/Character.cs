@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D), typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(Animator))]
 [RequireComponent(typeof(HealthMpSystem), typeof(EffectSystem))]
 public class Character : MonoBehaviour {
 
