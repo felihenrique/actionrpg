@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6fa01987eddd47a428e1584606ca2006
-timeCreated: 1479076505
+timeCreated: 1479501908
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,8 @@ TextureImporter:
     21300018: exp_bar
     21300020: bar_base
     21300022: bar_base_complete
+    21300024: button_ui
+    21300026: button_ui_pressed
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -215,6 +217,32 @@ TextureImporter:
         y: 306
         width: 80
         height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: button_ui
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 93
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: button_ui_pressed
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 43
+        width: 44
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

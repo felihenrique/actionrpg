@@ -10,6 +10,8 @@ public class EffectSystem : MonoBehaviour {
 	public event EffectChangeHandler onEffectRemoved;
 
 	List<Effect> effects;
+
+	public Color poisonDamageColor;
 	// Use this for initialization
 	void Start () {
 		effects = new List<Effect> ();

@@ -28,7 +28,7 @@ public class Envenenon : Effect
 
 	IEnumerator DoVenenomEffect() {
 		while (duration > 0) {
-			sprRenderer.color = character.poisonDamageColor;
+			sprRenderer.color = esystem.poisonDamageColor;
 			hpmpSystem.LoseHP (damage, 0);
 			duration -= interval;
 			yield return new WaitForSeconds (interval);
