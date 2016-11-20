@@ -62,9 +62,11 @@
      <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\HealthMpSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\InventorySystem.cs" />
+     <Compile Include="Assets\Scripts\TextureUtils.cs" />
      <Compile Include="Assets\Scripts\UI\EffectShow.cs" />
      <Compile Include="Assets\Scripts\UI\HpMpExpShow.cs" />
      <Compile Include="Assets\Scripts\Utils\Vector.cs" />
+     <Compile Include="Assets\Scripts\VisualEquipment.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SpriteDepthInMap.cs" />
