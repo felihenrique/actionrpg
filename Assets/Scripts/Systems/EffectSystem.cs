@@ -6,8 +6,8 @@ public class EffectSystem : MonoBehaviour {
 
 	public delegate void EffectChangeHandler(Effect eff);
 
-	public event EffectChangeHandler onEffectAdded;
-	public event EffectChangeHandler onEffectRemoved;
+	public event EffectChangeHandler EffectAdded;
+	public event EffectChangeHandler EffectRemoved;
 
 	List<Effect> effects;
 
@@ -34,8 +34,8 @@ public class EffectSystem : MonoBehaviour {
 		{
 			effects.Add (eff);
 			eff.ApplyEffect (gameObject);
-			if (onEffectAdded != null) {
-				onEffectAdded (eff);
+			if (EffectAdded != null) {
+				EffectAdded (eff);
 			}
 		}
 	}
@@ -43,8 +43,8 @@ public class EffectSystem : MonoBehaviour {
 	public void RemoveEffect(Effect eff) {
 		effects.Remove (eff);
 		eff.RemoveEffect ();
-		if (onEffectRemoved != null) {
-			onEffectRemoved (eff);
+		if (EffectRemoved != null) {
+			EffectRemoved (eff);
 		}
 	}
 

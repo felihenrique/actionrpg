@@ -7,7 +7,7 @@ public class HealthPotion : Item
 	public override void Use (GameObject obj)
 	{
 		HealthMpSystem system = obj.GetComponent<HealthMpSystem> ();
-		if (system) {
+		if (system != null) {
 			system.GainHP (amount);
 		}
 	}

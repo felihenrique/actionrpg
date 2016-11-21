@@ -14,6 +14,7 @@ public class Character : MonoBehaviour {
 	Animator animator;
 	HealthMpSystem healthmp;
 	SpriteRenderer sprRenderer;
+	Color sprColor;
 
 	Vector2 cachedDirection;
 	Vector2 _inputVelocity;
@@ -27,6 +28,7 @@ public class Character : MonoBehaviour {
 		_inputVelocity = Vector2.zero;
 		healthmp.AddMaxHP (maxHP);
 		healthmp.AddMaxMP (maxMP);
+		sprColor = sprRenderer.color;
 	}
 
 	// Update is called once per frame
@@ -37,11 +39,22 @@ public class Character : MonoBehaviour {
 		animator.SetFloat ("speed_x", cachedDirection.x);
 		animator.SetFloat ("speed_y", cachedDirection.y);
 		animator.SetBool ("moving", !(rigid2D.velocity == Vector2.zero));
-		sprRenderer.color = Color.Lerp (sprRenderer.color, Color.white, 0.1f);
+		sprRenderer.color = Color.Lerp (sprRenderer.color, sprColor, 0.1f);
 	}
 
 	public Vector2 getCachedDirection() {
 		return cachedDirection;
+	}
+
+	public Vector2 getDirection4() {
+		if (cachedDirection == Vector2.zero) {
+			return Vector2.down;
+		}
+		if (Mathf.Abs(cachedDirection.x) > Mathf.Abs(cachedDirection.y)) {
+			return cachedDirection.x > 0 ? Vector2.right : Vector2.left;
+		} else {
+			return cachedDirection.y > 0 ? Vector2.up : Vector2.down; 
+		}
 	}
 
 	void FixedUpdate() {

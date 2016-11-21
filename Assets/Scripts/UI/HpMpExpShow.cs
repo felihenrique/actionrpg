@@ -30,18 +30,6 @@ public class HpMpExpShow : MonoBehaviour {
 		System.Array.Copy (mp_parts, 1, mp_parts, 0, mp_parts.Length - 1);
 		System.Array.Copy (hp_parts, 1, hp_parts, 0, hp_parts.Length - 1);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.J)) {
-			hpmpSystem.LoseMP (12);
-			print (hpmpSystem.getMP ());
-		} 
-		if (Input.GetKeyDown(KeyCode.K)) {
-			hpmpSystem.GainMP (15);
-			print (hpmpSystem.getMP ());
-		}
-	}
 
 	void onHpChange(float amount) {
 		var hp = (int)((hpmpSystem.getHP () / hpmpSystem.getMaxHP ()) * 10f) - 1;

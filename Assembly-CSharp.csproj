@@ -46,12 +46,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Behaviour\Character.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\HumanoidAI.cs" />
      <Compile Include="Assets\Scripts\Behaviour\PartsCharacter.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Speed.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Armor.cs" />
+     <Compile Include="Assets\Scripts\Database\Itens\Equipment.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Item.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\ManaPotion.cs" />
@@ -59,6 +60,7 @@
      <Compile Include="Assets\Scripts\Input\PCInput.cs" />
      <Compile Include="Assets\Scripts\PixelPerfectCamera.cs" />
      <Compile Include="Assets\Scripts\Systems\AttackSystem.cs" />
+     <Compile Include="Assets\Scripts\Systems\ColorEffectsSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\EffectSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\HealthMpSystem.cs" />
@@ -68,6 +70,7 @@
      <Compile Include="Assets\Scripts\UI\HpMpExpShow.cs" />
      <Compile Include="Assets\Scripts\Utils\Vector.cs" />
      <Compile Include="Assets\Scripts\VisualEquipment.cs" />
+     <Compile Include="Assets\TestsScript.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SpriteDepthInMap.cs" />
