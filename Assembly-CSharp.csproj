@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Behaviour\Character.cs" />
+     <Compile Include="Assets\Scripts\Behaviour\PartsCharacter.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />

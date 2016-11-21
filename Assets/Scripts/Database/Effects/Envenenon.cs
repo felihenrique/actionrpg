@@ -10,14 +10,12 @@ public class Envenenon : Effect
 	private HealthMpSystem hpmpSystem;
 	private EffectSystem esystem;
 	private SpriteRenderer sprRenderer;
-	private Character character;
 
 	public override void ApplyEffect (GameObject obj)
 	{
 		hpmpSystem = obj.GetComponent<HealthMpSystem> ();
 		esystem = obj.GetComponent<EffectSystem> ();
 		sprRenderer = obj.GetComponent<SpriteRenderer> ();
-		character = obj.GetComponent<Character> ();
 		esystem.StartCoroutine (DoVenenomEffect());
 	}
 

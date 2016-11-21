@@ -13,7 +13,6 @@ public class Character : MonoBehaviour {
 	//new Transform transform;
 	Animator animator;
 	HealthMpSystem healthmp;
-	AttackSystem attackSystem;
 	SpriteRenderer sprRenderer;
 
 	Vector2 cachedDirection;
@@ -25,7 +24,6 @@ public class Character : MonoBehaviour {
 		rigid2D = GetComponent<Rigidbody2D> ();
 		healthmp = GetComponent<HealthMpSystem> ();
 		sprRenderer = GetComponent<SpriteRenderer> ();
-		attackSystem = GetComponent<AttackSystem> ();
 		_inputVelocity = Vector2.zero;
 		healthmp.AddMaxHP (maxHP);
 		healthmp.AddMaxMP (maxMP);
@@ -40,6 +38,10 @@ public class Character : MonoBehaviour {
 		animator.SetFloat ("speed_y", cachedDirection.y);
 		animator.SetBool ("moving", !(rigid2D.velocity == Vector2.zero));
 		sprRenderer.color = Color.Lerp (sprRenderer.color, Color.white, 0.1f);
+	}
+
+	public Vector2 getCachedDirection() {
+		return cachedDirection;
 	}
 
 	void FixedUpdate() {

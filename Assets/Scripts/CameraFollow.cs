@@ -16,8 +16,6 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		Vector3 pos = entityToFollow.position;
-		pos.x = Mathf.Clamp (pos.x, 170f, 183.9f);
-		pos.y = Mathf.Clamp (pos.y, 79.5f, 104.4f);
 		pos.z = transform.position.z;
 		transform.position = Vector3.Lerp (transform.position, pos, Time.deltaTime * speed);
 		if (Vector3.Distance(transform.position, pos) < tolerance) {
