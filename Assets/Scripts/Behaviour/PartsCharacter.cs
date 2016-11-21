@@ -10,6 +10,7 @@ public class PartsCharacter : MonoBehaviour {
 	Vector2 cachedDirection;
 	Character baseCharacter;
 	AttackSystem baseAttackSystem;
+	Color spriteColor;
 
 	bool isAttacking;
 	// Use this for initialization
@@ -21,6 +22,7 @@ public class PartsCharacter : MonoBehaviour {
 		baseAttackSystem = GetComponentInParent<AttackSystem> ();
 		baseAttackSystem.attackSwordInit += onAttackInit;
 		baseAttackSystem.attackSwordEnd += onAttackEnd;
+		spriteColor = sprRenderer.color;
 	}
 
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class PartsCharacter : MonoBehaviour {
 		animator.SetFloat ("speed_y", cachedDirection.y);
 		animator.SetBool ("moving", !(rigid2D.velocity == Vector2.zero));
 		animator.SetBool ("attacking", isAttacking);
-		sprRenderer.color = Color.Lerp (sprRenderer.color, Color.white, 0.1f);
+		sprRenderer.color = Color.Lerp (sprRenderer.color, spriteColor, 0.1f);
 	}
 
 	void onAttackInit() {

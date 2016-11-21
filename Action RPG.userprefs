@@ -1,9 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\VisualEquipment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\HpMpExpShow.cs">
     <Files>
-      <File FileName="Assets\Scripts\VisualEquipment.cs" Line="21" Column="24" />
-      <File FileName="Assets\Scripts\TextureUtils.cs" Line="29" Column="2" />
+      <File FileName="Assets\Scripts\VisualEquipment.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TextureUtils.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraFollow.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Systems\EffectSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviour\Character.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviour\PartsCharacter.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\Systems\AttackSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\HpMpExpShow.cs" Line="37" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
