@@ -61,12 +61,14 @@ public class HealthMpSystem : MonoBehaviour {
 	}
 
 	public void LoseHP(float quantity, float resistance) {
+		if (hp == 0) {
+			return;
+		}
 		float oldhp = hp;
 		float damage = quantity - resistance > 0 ? quantity - resistance : 0;
 		if (damage == 0) {
 			if (BlockedDamage != null) {
 				BlockedDamage ();
-
 			}
 			return;
 		}
