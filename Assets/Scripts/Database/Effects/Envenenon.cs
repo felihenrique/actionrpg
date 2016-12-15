@@ -9,13 +9,11 @@ public class Envenenon : Effect
 
 	private HealthMpSystem hpmpSystem;
 	private EffectSystem esystem;
-	private SpriteRenderer sprRenderer;
 
 	public override void ApplyEffect (GameObject obj)
 	{
 		hpmpSystem = obj.GetComponent<HealthMpSystem> ();
 		esystem = obj.GetComponent<EffectSystem> ();
-		sprRenderer = obj.GetComponent<SpriteRenderer> ();
 		esystem.StartCoroutine (DoVenenomEffect());
 	}
 
@@ -26,7 +24,6 @@ public class Envenenon : Effect
 
 	IEnumerator DoVenenomEffect() {
 		while (duration > 0) {
-			sprRenderer.color = esystem.poisonDamageColor;
 			hpmpSystem.LoseHP (damage, 0);
 			duration -= interval;
 			yield return new WaitForSeconds (interval);

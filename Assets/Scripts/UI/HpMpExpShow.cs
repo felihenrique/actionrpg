@@ -17,8 +17,8 @@ public class HpMpExpShow : MonoBehaviour {
 
 	void Start () {
 		hpmpSystem = player.GetComponent<HealthMpSystem> ();
-		old_hp = (int)((hpmpSystem.getHP () / hpmpSystem.getMaxHP ()) * 10f) - 1;
-		old_mp = (int)((hpmpSystem.getMP() / hpmpSystem.getMaxMP()) * 10f) - 1;
+		old_hp = (int)((hpmpSystem.HP / hpmpSystem.MaxHP) * 10f) - 1;
+		old_mp = (int)((hpmpSystem.MP / hpmpSystem.MaxMP) * 10f) - 1;
 		hpmpSystem.hpChange += onHpChange;
 		hpmpSystem.mpChange += onMpChange;
 		hpmpSystem.maxHPChange += onHpChange;
@@ -32,7 +32,7 @@ public class HpMpExpShow : MonoBehaviour {
 	}
 
 	void onHpChange(float amount) {
-		var hp = (int)((hpmpSystem.getHP () / hpmpSystem.getMaxHP ()) * 10f) - 1;
+		var hp = (int)((hpmpSystem.HP / hpmpSystem.MaxHP) * 10f) - 1;
 		if (hp != old_hp) {
 			old_hp = hp;
 			for (int i = 0; i < 10; i++) {
@@ -46,7 +46,7 @@ public class HpMpExpShow : MonoBehaviour {
 	}
 
 	void onMpChange(float amount) {
-		var mp = (int)((hpmpSystem.getMP () / hpmpSystem.getMaxMP ()) * 10f) - 1;
+		var mp = (int)((hpmpSystem.MP / hpmpSystem.MaxMP) * 10f) - 1;
 		if (mp != old_mp) {
 			old_mp = mp;
 			for (int i = 0; i < 10; i++) {

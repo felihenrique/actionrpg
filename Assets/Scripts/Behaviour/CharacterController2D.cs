@@ -9,7 +9,7 @@ namespace Prime31 {
 	[RequireComponent(typeof( Rigidbody2D ) )]
 	public class CharacterController2D : MonoBehaviour
 	{
-		private Rigidbody2D rigidbody2D;
+		private new Rigidbody2D rigidbody2D;
 		private new Transform transform;
 		private Vector2 toMove;
 

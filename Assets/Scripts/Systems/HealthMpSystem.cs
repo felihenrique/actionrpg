@@ -8,18 +8,15 @@ public class HealthMpSystem : MonoBehaviour {
 	private float maxhp;
 	private float maxmp;
 
-	public delegate void HpChangeHandler (float quantity);
-	public delegate void MpChangeHandler (float quantity);
-	public delegate void MaxHPChangeHandler (float quantity);
-	public delegate void MaxMPChangeHandler (float quantity);
+	public delegate void AttrChangeHandler (float quantity);
 	public delegate void BlockDamageHandler ();
 	public delegate void DeathHandler ();
 	// Caso o valor chamado nesse evento seja maior que zero o character ganhou hp, caso seja menor que zero o character tomou dano e caso
 	// seja = 0 o character se defendeu de um ataque
-	public event HpChangeHandler hpChange;
-	public event MpChangeHandler mpChange;
-	public event MaxHPChangeHandler maxHPChange;
-	public event MaxMPChangeHandler maxMPChange;
+	public event AttrChangeHandler hpChange;
+	public event AttrChangeHandler mpChange;
+	public event AttrChangeHandler maxHPChange;
+	public event AttrChangeHandler maxMPChange;
 	public event DeathHandler Died;
 	public event BlockDamageHandler BlockedDamage;
 
@@ -29,139 +26,84 @@ public class HealthMpSystem : MonoBehaviour {
 	}
 
 	void onEquipAdded(Equipment equip) {
-		if (equip.hpGain != 0) {
-			AddMaxHP (equip.hpGain);
-		}
-		else if (equip.hpGainPercent != 0) {
-			AddMaxHP ((1 + equip.hpGainPercent) * maxhp - maxhp);
-		}
-
-		if (equip.mpGain != 0) {
-			AddMaxMP (equip.mpGain);
-		}
-		else if (equip.mpGainPercent != 0) {
-			AddMaxMP ((1 + equip.mpGainPercent) * maxmp - maxmp);
-		}
+		AddMaxHP (equip.hpGain + ((1 + equip.hpGainPercent) * maxhp - maxhp));
+		AddMaxMP (equip.mpGain + ((1 + equip.mpGainPercent) * maxmp - maxmp));
 	}
 
 	void onEquipRemoved(Equipment equip) {
-		if (equip.hpGain != 0) {
-			ReduceMaxHP (equip.hpGain);
-		}
-		if (equip.hpGainPercent != 0) {
-			ReduceMaxHP ( maxhp - (maxhp / (1 + equip.hpGainPercent)) );
-		}
-
-		if (equip.mpGain != 0) {
-			ReduceMaxMP (equip.mpGain);
-		}
-		if (equip.mpGainPercent != 0) {
-			ReduceMaxMP ( maxmp - (maxmp / (1 + equip.mpGainPercent)) );
-		}
+		ReduceMaxHP (equip.hpGain + (maxhp - (maxhp / (1 + equip.hpGainPercent))));
+		ReduceMaxMP (equip.mpGain + (maxmp - (maxmp / (1 + equip.mpGainPercent))));
 	}
 
 	public void LoseHP(float quantity, float resistance) {
-		if (hp == 0) {
-			return;
-		}
-		float oldhp = hp;
-		float damage = quantity - resistance > 0 ? quantity - resistance : 0;
-		if (damage == 0) {
-			if (BlockedDamage != null) {
-				BlockedDamage ();
-			}
+		if (hp == 0) return;
+		float damage = quantity - resistance;
+		if (damage <= 0) {
+			if (BlockedDamage != null) BlockedDamage ();
 			return;
 		}
 		hp -= damage;
 		if (hp < 0) {
 			hp = 0;
-			if (Died != null) {
-				Died ();
-			}
+			if (Died != null) Died ();
 		}
-		hpChange (hp - oldhp); 
+		hpChange (quantity); 
 	}
 
 	public void GainHP(float quantity) {
-		float oldhp = hp;
 		hp += quantity;
-		if (hp > maxhp)
-			hp = maxhp;
-		if (hpChange != null) {
-			hpChange (hp - oldhp);
-		}
+		hp = Mathf.Clamp (hp, 0, maxhp);
+		if (hpChange != null) hpChange (quantity);
 	}
 
 	public void LoseMP(float quantity) {
-		float oldmp = mp;
 		mp -= quantity;
-		if (mp < 0)
-			mp = 0;
-		if (mpChange != null) {
-			mpChange (mp - oldmp);
-		}
+		mp = Mathf.Clamp (mp, 0, maxmp);
+		if (mpChange != null) mpChange (quantity);
 	}
 
 	public void GainMP(float quantity) {
-		float oldmp = mp;
 		mp += quantity;
-		if (mp > maxmp)
-			mp = maxmp;
-		if (mpChange != null) {
-			mpChange (mp - oldmp);
-		}
+		mp = Mathf.Clamp (mp, 0, maxmp);
+		if (mpChange != null) mpChange (quantity);
 	}
 
 	public void AddMaxHP(float quantity) {
 		maxhp += quantity;
-		hp = maxhp;
-		if (maxHPChange != null) {
-			maxHPChange (quantity);
-		}
+		if (maxHPChange != null) maxHPChange (quantity);
 	}
 
 	public void ReduceMaxHP(float quantity) {
 		maxhp -= quantity;
-		if (hp > maxhp) {
-			hp = maxhp;
-		}
-		if (maxHPChange != null) {
-			maxHPChange (-quantity);
-		}
+		hp = Mathf.Clamp (hp, 0, maxhp);
+		if (maxHPChange != null) maxHPChange (-quantity);
 	}
 
 	public void AddMaxMP(float quantity) {
 		maxmp += quantity;
-		mp = maxmp;
-		if (maxMPChange != null) {
-			maxMPChange (quantity);
-		}
+		if (maxMPChange != null) maxMPChange (quantity);
 	}
 
 	public void ReduceMaxMP(float quantity) {
 		maxmp -= quantity;
-		if (mp > maxmp) {
-			mp = maxmp;
-		}
-		if (maxMPChange != null) {
-			maxMPChange (-quantity);
-		}
+		mp = Mathf.Clamp (mp, 0, maxmp);
+		if (maxMPChange != null) maxMPChange (-quantity);
 	}
 
-	public float getHP() {
-		return hp;
+	public float HP {
+		get { return hp; }
 	}
 
-	public float getMP() {
-		return mp;
+	public float MP {
+		get { return mp; }
 	}
 
-	public float getMaxHP() {
-		return maxhp;
+	public float MaxHP {
+		get { return maxhp; }
 	}
 
-	public float getMaxMP() {
-		return maxmp;
+	public float MaxMP {
+		get { return maxmp; }
 	}
 }
 

@@ -18,41 +18,34 @@ public class EquipmentSystem : MonoBehaviour {
 	}
 
 	void updateStatus() {
-		Equipment[] equips = new Equipment[armors.Values.Count];
-		armors.Values.CopyTo (equips, 0);
-
 		totalPhysicalResistance = 0;
 		totalMagicalResistance = 0;
-		for (int i = 0; i < equips.Length; i++) {
-			totalPhysicalResistance += equips [i].physicalResistance;
-			totalMagicalResistance += equips [i].magicalResistance;
+		foreach (var armor in armors) {
+			totalPhysicalResistance += armor.Value.physicalResistance;
+			totalMagicalResistance += armor.Value.magicalResistance;
 		}
 	}
 
-	public float getTotalPhysicalResist () {
-		return totalPhysicalResistance;
+	public float PhysicalResist {
+		get { return totalPhysicalResistance; }
 	}
 
-	public float getTotalMagicalResist() {
-		return totalMagicalResistance;
+	public float MagicalResist {
+		get { return totalMagicalResistance; }
 	}
 
 	public void Equip(Equipment equipment) {
-		if (armors.ContainsKey(equipment.type)) {
-			UnequipArmor(equipment);
-		}
+		if (armors.ContainsKey(equipment.type)) 
+			Unequip(equipment);
 		armors.Add (equipment.type, equipment);
 		updateStatus ();
-		if (EquipAdded != null) {
+		if (EquipAdded != null) 
 			EquipAdded (equipment);
-		}
 	}
 
-	public void UnequipArmor(Equipment equipment) {
+	public void Unequip(Equipment equipment) {
 		if (armors.ContainsKey(equipment.type)) {
-			if (EquipRemoved != null) {
-				EquipRemoved (equipment);
-			}
+			if (EquipRemoved != null) EquipRemoved (equipment);
 			armors.Remove (equipment.type);
 			updateStatus ();
 		}

@@ -7,6 +7,9 @@ public class CameraFollow : MonoBehaviour {
 	private Vector3 velocity = Vector3.zero;
 
 	void LateUpdate () {
+		if (Vector2.Distance(target.position, transform.position) < 0.1f) {
+			return;
+		}
 		Vector3 targetPosition = target.position;
 		Vector3 pos = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 		pos.z = -10;
