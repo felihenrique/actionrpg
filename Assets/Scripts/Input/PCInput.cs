@@ -17,11 +17,13 @@ public class PCInput : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		Vector2 mousePos = Input.mousePosition;
 		Vector2 charPos = Camera.main.WorldToScreenPoint (transform.position);
 		if (Input.GetKey (KeyCode.Mouse0)) {
-			character.move ((mousePos - charPos).normalized * movement.Speed * Time.deltaTime);
+			character.velocity = (mousePos - charPos).normalized * movement.Speed;
+		} else {
+			character.velocity = Vector2.zero;
 		}
 	}
 }

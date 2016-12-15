@@ -6,9 +6,10 @@ public class MovementSystem : MonoBehaviour {
 
 	private float speedMultiplier = 1;
 	private Animator animator;
+	private float speed = 0.5f;
 
 	public float speedLimit = 10;
-	public float speed = 2;
+
 
 	void Start()
 	{

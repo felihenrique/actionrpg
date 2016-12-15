@@ -13,7 +13,7 @@ public class AnimationSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (characterController.velocity != Vector3.zero) {
+		if (characterController.velocity != Vector2.zero) {
 			animator.SetFloat ("speed_x", characterController.velocity.x);
 			animator.SetFloat ("speed_y", characterController.velocity.y);
 			animator.SetBool ("moving", true);

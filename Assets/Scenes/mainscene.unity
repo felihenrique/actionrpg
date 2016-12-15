@@ -621,6 +621,87 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 222130788}
+--- !u!1 &247577596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 247577600}
+  - 33: {fileID: 247577599}
+  - 23: {fileID: 247577598}
+  - 61: {fileID: 247577597}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &247577597
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247577596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+--- !u!23 &247577598
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247577596}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &247577599
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247577596}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &247577600
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247577596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13, y: -8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &280402581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1246,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.6299999
+  orthographic size: 1.745
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1186,7 +1267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 624788450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 164.95, y: 93.41, z: -3.687}
+  m_LocalPosition: {x: 10.6, y: -9.5, z: -3.17}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1214,12 +1295,12 @@ MonoBehaviour:
   retroSnap: 0
   assetsPixelsPerUnit: 100
   showHUD: 0
-  cameraSize: {x: 2.465, y: 1.6299999}
+  cameraSize: {x: 3.415, y: 1.745}
   contraintUsed: 0
   cameraPixelsPerUnit: 100
   ratio: 1
-  nativeAssetResolution: {x: 492.99997, y: 325.99997}
-  fovCoverage: 0.6037037
+  nativeAssetResolution: {x: 683, y: 349}
+  fovCoverage: 0.6462963
 --- !u!114 &624788457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,8 +1312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2644155422613649b38cc54222589d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityToFollow: {fileID: 1020238070}
-  speed: 0.1
+  target: {fileID: 1020238070}
+  smoothTime: 0.6
 --- !u!1 &631253259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,9 +2047,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: e7670f5eb51c5f944b6f1f8797ad2017, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.0015331476, y: -0.116210625}
+  m_Offset: {x: 0.0015258789, y: -0.08438873}
   serializedVersion: 2
-  m_Size: {x: 0.25811702, y: 0.35847116}
+  m_Size: {x: 0.25811702, y: 0.29482672}
 --- !u!212 &1020238069
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1998,7 +2079,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 045c1a7888bfd3d4292cd1b81fd77fe0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 620eb99a6455a584ab8018d2961308b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2009,7 +2090,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020238065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 165.06, y: 93.06, z: -2.765}
+  m_LocalPosition: {x: 11, y: -9, z: -2.765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2026,42 +2107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0975f86160b35349a7bd7606bf2ab34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreOneWayPlatformsThisFrame: 0
-  _skinWidth: 0.02
-  platformMask:
-    serializedVersion: 2
-    m_Bits: 0
-  triggerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  oneWayPlatformMask:
-    serializedVersion: 2
-    m_Bits: 0
-  slopeLimit: 30
-  jumpingThreshold: 0.07
-  slopeSpeedMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - time: -90
-      value: 1.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 90
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  totalHorizontalRays: 8
-  totalVerticalRays: 4
 --- !u!95 &1020238072
 Animator:
   serializedVersion: 3
@@ -2114,7 +2159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedLimit: 10
-  speed: 0.5
 --- !u!114 &1020238076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,11 +2994,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014223715718, guid: 54337484d54ea124cba647c28f6ab7db, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 162.31203
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000014223715718, guid: 54337484d54ea124cba647c28f6ab7db, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 108.0067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000014223715718, guid: 54337484d54ea124cba647c28f6ab7db, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4108,7 +4152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedLimit: 10
-  speed: 0.5
 --- !u!114 &1945321977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4120,42 +4163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0975f86160b35349a7bd7606bf2ab34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreOneWayPlatformsThisFrame: 0
-  _skinWidth: 0.02
-  platformMask:
-    serializedVersion: 2
-    m_Bits: 0
-  triggerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  oneWayPlatformMask:
-    serializedVersion: 2
-    m_Bits: 0
-  slopeLimit: 30
-  jumpingThreshold: 0.07
-  slopeSpeedMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - time: -90
-      value: 1.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 90
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  totalHorizontalRays: 8
-  totalVerticalRays: 4
 --- !u!114 &1945321978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4291,7 +4298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 045c1a7888bfd3d4292cd1b81fd77fe0, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 620eb99a6455a584ab8018d2961308b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4302,7 +4309,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1945321974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 163.53, y: 92.565, z: -2.765}
+  m_LocalPosition: {x: 10, y: -10, z: -2.765}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
