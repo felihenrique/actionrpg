@@ -6,7 +6,7 @@ public class AttackSystem : MonoBehaviour {
 
 	private Animator animator;
 	private new Transform transform;
-	private Character character;
+	private MovementSystem movement;
 	private float totalAttack;
 	private float totalMagicAttack;
 	private EquipmentSystem equipSystem;
@@ -18,7 +18,7 @@ public class AttackSystem : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator> ();
 		transform = GetComponent<Transform> ();
-		character = GetComponent<Character> ();
+		movement = GetComponent<MovementSystem> ();
 		GetComponent<EquipmentSystem> ().EquipAdded += onEquipAdded;
 		GetComponent<EquipmentSystem> ().EquipRemoved += onEquipRemoved;
 	}
@@ -63,18 +63,20 @@ public class AttackSystem : MonoBehaviour {
 		}
 	}
 
-	public void attackSwordEnded() {
+	public void attackSwordEnded() 
+	{
 		animator.SetBool ("attacking", false);
 		if (attackSwordEnd != null) {
 			attackSwordEnd ();
 		}
 	}
 
-	public void attackWithSword() {
+	public void attackWithSword() 
+	{
 		if (animator.GetBool("attacking")) {
 			return;
 		}
-		var direction1 = character.getDirection4 ();
+		var direction1 = movement.getDirection4 ();
 		var direction2 = Quaternion.Euler (0, 0, 30) * direction1;
 		var direction3 = Quaternion.Euler (0, 0, -30) * direction1;
 		var hits1 = Physics2D.RaycastAll (transform.position, direction1, 0.3f);
@@ -92,11 +94,11 @@ public class AttackSystem : MonoBehaviour {
 			setObjs.Add (hits3 [i].collider.gameObject);
 		}
 
-		foreach (var item in setObjs) {
-			if (item.name == transform.gameObject.name) {
+		foreach (var obj in setObjs) {
+			if (obj.name == gameObject.name) {
 				continue;
 			}
-			item.GetComponent<HealthMpSystem> ().LoseHP (totalAttack, item.GetComponent<EquipmentSystem> ().getTotalPhysicalResist ());
+			obj.GetComponent<HealthMpSystem> ().LoseHP (totalAttack, obj.GetComponent<EquipmentSystem> ().getTotalPhysicalResist ());
 		}
 
 		animator.SetBool ("attacking", true);

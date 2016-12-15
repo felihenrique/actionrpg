@@ -5,15 +5,15 @@ using System.Collections;
 public class Speed : Effect
 {
 	public float speedMultiplier;
-	private Character character;
-	private EffectSystem system;
+	private MovementSystem movement;
+	private EffectSystem esystem;
 
 	public override void ApplyEffect(GameObject obj)
 	{
-		character = obj.GetComponent<Character>();
-		system = obj.GetComponent<EffectSystem>();
-		character.moveSpeed *= speedMultiplier;
-		system.StartCoroutine(DoSpeedEffect());
+		movement = obj.GetComponent<MovementSystem>();
+		esystem = obj.GetComponent<EffectSystem>();
+		movement.SetSpeedMultiplier(speedMultiplier);
+		esystem.StartCoroutine(DoSpeedEffect());
 	}
 
 	public override void RemoveEffect()
@@ -27,7 +27,7 @@ public class Speed : Effect
 			duration -= Time.deltaTime;
 			yield return new WaitForEndOfFrame ();
 		}
-		character.moveSpeed /= speedMultiplier;
-		system.RemoveEffect(this);
+		movement.SetSpeedMultiplier (0);
+		esystem.RemoveEffect(this);
 	}
 }

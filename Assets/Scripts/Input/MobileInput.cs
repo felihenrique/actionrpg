@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
 public class MobileInput : MonoBehaviour {
 	private Character character;
 	private Transform charTransform;
@@ -20,3 +20,4 @@ public class MobileInput : MonoBehaviour {
 		else character.InputVelocity = Vector2.zero;
 	}
 }
+*/
