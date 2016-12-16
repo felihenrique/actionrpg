@@ -27,6 +27,19 @@ public class Item : ISerializable {
 	public Item() {
 	}
 
+	public virtual object Clone()
+	{
+		Item temp = new Item ();
+		temp.group = group;
+		temp.sprite = sprite;
+		temp.itemName = itemName;
+		temp.description = description;
+		temp.animationName = animationName;
+		temp.price = price;
+		temp.consumable = consumable;
+		return temp;
+	}
+
 	protected Item(SerializationInfo info, StreamingContext context)
 	{
 		group = (GroupType)info.GetValue ("group", typeof(GroupType));

@@ -16,7 +16,24 @@ public class Potion : Item
 		}
 	}
 
-	public Potion() {
+	public Potion() 
+	{
+		
+	}
+
+	public override object Clone ()
+	{
+		Potion temp = new Potion ();
+		temp.group = group;
+		temp.sprite = sprite;
+		temp.itemName = itemName;
+		temp.description = description;
+		temp.animationName = animationName;
+		temp.price = price;
+		temp.consumable = consumable;
+		temp.amountHP = amountHP;
+		temp.amountMP = amountMP;
+		return temp;
 	}
 
 	protected Potion(SerializationInfo info, StreamingContext context) : base(info, context)
