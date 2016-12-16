@@ -2347,7 +2347,7 @@ GameObject:
   - component: {fileID: 1054886007}
   - component: {fileID: 1054886006}
   m_Layer: 0
-  m_Name: ItemDatabase
+  m_Name: IconDatabase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2367,8 +2367,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300684, guid: 1b0d063a180da9e4ba1aea0e42c8ea7c, type: 3}
   - {fileID: 21300070, guid: 1b0d063a180da9e4ba1aea0e42c8ea7c, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300076, guid: 1b0d063a180da9e4ba1aea0e42c8ea7c, type: 3}
+  - {fileID: 21300734, guid: 1b0d063a180da9e4ba1aea0e42c8ea7c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

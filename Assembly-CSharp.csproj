@@ -53,11 +53,10 @@
      <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />
      <Compile Include="Assets\Scripts\Database\Effects\Speed.cs" />
+     <Compile Include="Assets\Scripts\Database\IconDatabase.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Equipment.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\HealthPotion.cs" />
      <Compile Include="Assets\Scripts\Database\Itens\Item.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\ItemDatabase.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\ManaPotion.cs" />
+     <Compile Include="Assets\Scripts\Database\Itens\Potion.cs" />
      <Compile Include="Assets\Scripts\Input\MobileInput.cs" />
      <Compile Include="Assets\Scripts\Input\PCInput.cs" />
      <Compile Include="Assets\Scripts\Systems\AnimationSystem.cs" />
