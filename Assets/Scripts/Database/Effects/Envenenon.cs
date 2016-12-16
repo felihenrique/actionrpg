@@ -6,7 +6,6 @@ public class Envenenon : Effect
 {
 	public float interval; // em segundos
 	public int damage;
-
 	private HealthMpSystem hpmpSystem;
 	private EffectSystem esystem;
 

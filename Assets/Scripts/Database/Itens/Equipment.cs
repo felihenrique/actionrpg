@@ -5,7 +5,14 @@ public class Equipment : Item
 {
 	public enum EquipmentType
 	{
-		Helmet, ChestPlate, Legs, Boots, Pendant, Ring, Weapon, Shield
+		Helmet = 1,
+		ChestPlate = 2,
+		Legs = 3,
+		Boots = 4,
+		Pendant = 5,
+		Ring = 6,
+		Weapon = 7,
+		Shield = 8
 	}
 	public float physicalResistance;
 	public float magicalResistance;
