@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Prime31;
 
 public class AnimationSystem : MonoBehaviour {
 
@@ -12,8 +11,9 @@ public class AnimationSystem : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (characterController.velocity != Vector2.zero) {
+	void FixedUpdate () {
+		float velocity = characterController.velocity.magnitude;
+		if (velocity > 0.01f) {
 			animator.SetFloat ("speed_x", characterController.velocity.x);
 			animator.SetFloat ("speed_y", characterController.velocity.y);
 			animator.SetBool ("moving", true);

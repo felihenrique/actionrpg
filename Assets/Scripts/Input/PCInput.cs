@@ -3,7 +3,6 @@ using System.Collections;
 using ActionRPGEngine.VectorUtils;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Prime31;
 
 public class PCInput : MonoBehaviour {
 	private CharacterController2D character;
@@ -17,10 +16,11 @@ public class PCInput : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void FixedUpdate () {
 		Vector2 mousePos = Input.mousePosition;
 		Vector2 charPos = Camera.main.WorldToScreenPoint (transform.position);
-		if (Input.GetKey (KeyCode.Mouse0)) {
+		float distance = Vector2.Distance (mousePos, charPos);
+		if (Input.GetKey (KeyCode.Mouse0) && distance > 5f) {
 			character.velocity = (mousePos - charPos).normalized * movement.Speed;
 		} else {
 			character.velocity = Vector2.zero;

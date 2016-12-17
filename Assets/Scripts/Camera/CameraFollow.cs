@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour {
 	public float smoothTime = 0.3F;
 	private Vector3 velocity = Vector3.zero;
 
-	void LateUpdate () {
+	void FixedUpdate () {
 		if (Vector2.Distance(target.position, transform.position) < 0.1f) {
 			return;
 		}

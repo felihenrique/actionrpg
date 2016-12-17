@@ -6,26 +6,21 @@ public class ColorEffectsSystem : MonoBehaviour {
 	public Color damageColor;
 	public Color envenenomColor;
 
-	private SpriteRenderer[] sprRenderers;
-	private HealthMpSystem hpmpSystem;
+	private SpriteRenderer sprRenderer;
+	private HpMpSystem hpmpSystem;
 
 	void Start () {
-		sprRenderers = GetComponentsInChildren<SpriteRenderer> ();
-		hpmpSystem = GetComponent<HealthMpSystem> ();
-
+		sprRenderer = GetComponent<SpriteRenderer> ();
+		hpmpSystem = GetComponent<HpMpSystem> ();
 		hpmpSystem.hpChange += onDamage;
 	}
 
 	void onDamage(float quant) {
-		for (int i = 0; i < sprRenderers.Length; i++) {
-			if (sprRenderers[i].gameObject.activeSelf) {
-				sprRenderers [i].color = damageColor;
-			}
-		}
+		sprRenderer.color = damageColor;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		sprRenderer.color = Color.Lerp (sprRenderer.color, Color.white, 0.1f);
 	}
 }

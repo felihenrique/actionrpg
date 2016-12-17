@@ -98,7 +98,7 @@ public class AttackSystem : MonoBehaviour {
 			if (obj.name == gameObject.name) {
 				continue;
 			}
-			obj.GetComponent<HealthMpSystem> ().LoseHP (totalAttack, obj.GetComponent<EquipmentSystem> ().PhysicalResist);
+			obj.GetComponent<HpMpSystem> ().LoseHP (totalAttack, obj.GetComponent<EquipmentSystem> ().PhysicalResist);
 		}
 
 		animator.SetBool ("attacking", true);

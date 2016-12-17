@@ -6,19 +6,24 @@ public class Speed : Effect
 {
 	public float speedMultiplier;
 	private MovementSystem movement;
-	private EffectSystem esystem;
 
-	public override void ApplyEffect(GameObject obj)
+
+	void Start()
 	{
-		movement = obj.GetComponent<MovementSystem>();
-		esystem = obj.GetComponent<EffectSystem>();
+		movement = transform.parent.GetComponent<MovementSystem>();
+		ApplyEffect ();
+	}
+
+	public override void ApplyEffect()
+	{
 		movement.SetSpeedMultiplier(speedMultiplier);
-		esystem.StartCoroutine(DoSpeedEffect());
+		StartCoroutine(DoSpeedEffect());
 	}
 
 	public override void RemoveEffect()
 	{
 		duration = 0;
+		movement.SetSpeedMultiplier (1);
 	}
 
 	IEnumerator DoSpeedEffect()
@@ -27,7 +32,5 @@ public class Speed : Effect
 			duration -= Time.deltaTime;
 			yield return new WaitForEndOfFrame ();
 		}
-		movement.SetSpeedMultiplier (0);
-		esystem.RemoveEffect(this);
 	}
 }

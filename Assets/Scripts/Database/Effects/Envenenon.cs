@@ -6,14 +6,17 @@ public class Envenenon : Effect
 {
 	public float interval; // em segundos
 	public int damage;
-	private HealthMpSystem hpmpSystem;
-	private EffectSystem esystem;
+	private HpMpSystem hpmpSystem;
 
-	public override void ApplyEffect (GameObject obj)
+	void Start()
 	{
-		hpmpSystem = obj.GetComponent<HealthMpSystem> ();
-		esystem = obj.GetComponent<EffectSystem> ();
-		esystem.StartCoroutine (DoVenenomEffect());
+		hpmpSystem = transform.parent.GetComponent<HpMpSystem> ();
+		ApplyEffect ();
+	}
+
+	public override void ApplyEffect ()
+	{
+		StartCoroutine (DoVenenomEffect ());
 	}
 
 	public override void RemoveEffect ()
@@ -25,8 +28,8 @@ public class Envenenon : Effect
 		while (duration > 0) {
 			hpmpSystem.LoseHP (damage, 0);
 			duration -= interval;
+			print (hpmpSystem.HP);
 			yield return new WaitForSeconds (interval);
 		}
-		esystem.RemoveEffect (this);
 	}
 }

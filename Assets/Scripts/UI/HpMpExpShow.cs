@@ -6,7 +6,7 @@ public class HpMpExpShow : MonoBehaviour {
 
 	public GameObject player;
 
-	private HealthMpSystem hpmpSystem;
+	private HpMpSystem hpmpSystem;
 	private int old_hp;
 	private int old_mp;
 	private int old_exp;
@@ -16,7 +16,7 @@ public class HpMpExpShow : MonoBehaviour {
 	private RectTransform[] mp_parts;
 
 	void Start () {
-		hpmpSystem = player.GetComponent<HealthMpSystem> ();
+		hpmpSystem = player.GetComponent<HpMpSystem> ();
 		old_hp = (int)((hpmpSystem.HP / hpmpSystem.MaxHP) * 10f) - 1;
 		old_mp = (int)((hpmpSystem.MP / hpmpSystem.MaxMP) * 10f) - 1;
 		hpmpSystem.hpChange += onHpChange;
@@ -33,6 +33,7 @@ public class HpMpExpShow : MonoBehaviour {
 
 	void onHpChange(float amount) {
 		var hp = (int)((hpmpSystem.HP / hpmpSystem.MaxHP) * 10f) - 1;
+		print (hp);
 		if (hp != old_hp) {
 			old_hp = hp;
 			for (int i = 0; i < 10; i++) {

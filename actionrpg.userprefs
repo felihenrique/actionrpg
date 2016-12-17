@@ -2,14 +2,19 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Felipe\Desktop\actionrpg\Assets\Scripts\UI\HpMpExpShow.cs" line="35" column="1" />
+      <Breakpoint file="C:\Users\Felipe\Desktop\actionrpg\Assets\Scripts\Systems\InventorySystem.cs" line="36" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Database\Itens\Potion.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Systems\InventorySystem.cs">
     <Files>
-      <File FileName="Assets\Scripts\Tests.cs" Line="53" Column="26" />
-      <File FileName="Assets\Scripts\Database\ItemDatabase.cs" Line="44" Column="2" />
-      <File FileName="Assets\Scripts\Database\Itens\Item.cs" Line="42" Column="2" />
-      <File FileName="Assets\Scripts\Database\Itens\Potion.cs" Line="23" Column="1" />
+      <File FileName="Assets\Scripts\Systems\AnimationSystem.cs" Line="2" Column="26" />
+      <File FileName="Assets\Scripts\Camera\CameraFollow.cs" Line="9" Column="18" />
+      <File FileName="Assets\Scripts\Database\Itens\Item.cs" Line="31" Column="22" />
+      <File FileName="Assets\Scripts\Database\Itens\HideAndAddInventory.cs" Line="25" Column="68" />
+      <File FileName="Assets\Scripts\Systems\InventorySystem.cs" Line="37" Column="1" />
+      <File FileName="Assets\Scripts\Input\PCInput.cs" Line="15" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
 </Properties>
