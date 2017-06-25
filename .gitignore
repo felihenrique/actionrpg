@@ -1,3 +1,4 @@
-/Library
-/obj
-build/
+Library
+obj
+build
+Temp
