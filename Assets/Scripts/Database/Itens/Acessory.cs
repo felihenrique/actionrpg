@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Accessory : Item, IEquipable {
+public class Accessory : Durable, IEquipable {
 	
-	public float HpGainPercent;
-	public float MpGainPercent;
+	public float HpMultiplier;
+	public float MpMultiplier;
 	public float MagicalAttackMultiplier;
 	public float AttackMultiplier;
 

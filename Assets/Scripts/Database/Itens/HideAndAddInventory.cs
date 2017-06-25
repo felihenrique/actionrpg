@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public class HideAndAddInventory : MonoBehaviour {
 
 	// Use this for initialization

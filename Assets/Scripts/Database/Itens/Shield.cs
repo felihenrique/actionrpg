@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-public class Shield : Item, IEquipable
+public class Shield : Durable, IEquipable
 {
 	public float BlockChance;
-	public float DamageMultiplier;
+	public float DamageTakenMultiplier;
 
 	public void Equip(GameObject obj) {
 	}

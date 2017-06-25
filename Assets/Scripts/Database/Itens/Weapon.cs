@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class Weapon : Item, IEquipable
+public class Weapon : Durable, IEquipable
 {
-	public short Durability;
 	public short Attack;
 	public short MagicalAttack;
 

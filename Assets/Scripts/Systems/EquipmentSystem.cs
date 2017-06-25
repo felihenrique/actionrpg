@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public enum EquipmentType
+public enum Slot
 {
 	Weapon,
 	Chestplate,
@@ -18,33 +18,30 @@ public enum EquipmentType
 
 public class EquipmentSystem : MonoBehaviour {
 	
-	private Dictionary<EquipmentType, IEquipable> equips;
+	private Dictionary<Slot, IEquipable> equips;
 
 	public delegate void EquipChangeHandler (IEquipable armor);
 	public event EquipChangeHandler EquipAdded;
 	public event EquipChangeHandler EquipRemoved;
-	[HideInInspector]
-	public int TotalPhysicalResistance;
-	[HideInInspector]
-	public int TotalMagicalResistance;
 
 	void Start () {
-		equips = new HashSet<>();
+		equips = new Dictionary<Slot, IEquipable> ();
 	}
+	// TODO: Modificar aqui para colocar EquipmentType
 		
 	public void Equip(IEquipable equipment) {
-		if (equips.Contains(equipment))
+		if (equips.ContainsKey(equipment.Slot))
 			return;
 		equipment.Equip (gameObject);
-		equips.Add (equipment);
+		equips[equipment.Slot] = equipment;
 		EquipAdded?.Invoke (equipment);
 	}
 
 	public void Unequip(IEquipable equipment) {
-		if (!equips.Contains (equipment))
+		if (!equips.ContainsKey(equipment.Slot))
 			return;
 		equipment.UnEquip (gameObject);
-		equips.Remove (equipment);
+		equips.Remove (equipment.Slot);
 		EquipRemoved?.Invoke (equipment);
 	}
 }

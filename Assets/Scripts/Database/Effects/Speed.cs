@@ -4,33 +4,24 @@ using System.Collections;
 
 public class Speed : Effect
 {
-	public float speedMultiplier;
+	public float Multiplier;
+
 	private MovementSystem movement;
 
 
 	void Start()
 	{
 		movement = transform.parent.GetComponent<MovementSystem>();
-		ApplyEffect ();
+		Apply();
 	}
 
-	public override void ApplyEffect()
+	protected override void Apply ()
 	{
-		movement.SetSpeedMultiplier(speedMultiplier);
-		StartCoroutine(DoSpeedEffect());
+		movement.Speed *= Multiplier;
 	}
 
-	public override void RemoveEffect()
+	protected override void Remove ()
 	{
-		duration = 0;
-		movement.SetSpeedMultiplier (1);
-	}
-
-	IEnumerator DoSpeedEffect()
-	{
-		while (duration > 0) {
-			duration -= Time.deltaTime;
-			yield return new WaitForEndOfFrame ();
-		}
+		movement.Speed /= Multiplier;
 	}
 }

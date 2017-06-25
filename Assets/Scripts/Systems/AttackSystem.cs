@@ -9,7 +9,6 @@ public class AttackSystem : MonoBehaviour {
 	private MovementSystem movement;
 	private float totalAttack;
 	private float totalMagicAttack;
-	private EquipmentSystem equipSystem;
 
 	public delegate void attackedHandler();
 	public event attackedHandler attackSwordInit;

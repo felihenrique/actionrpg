@@ -2,51 +2,24 @@
 using System.Collections;
 
 public class MovementSystem : MonoBehaviour {
-
-
-	private float speedMultiplier = 1;
+	[SerializeField]
+	private int speed = 0.5f;
 	private Animator animator;
-	private float speed = 0.5f;
 
-	public float speedLimit = 10;
+	public delegate void SpeedChangeHandler();
+	public event SpeedChangeHandler SpeedChanged;
 
+	public float Speed { 
+		get { return speed; } 
+		set {
+			SpeedChanged?.Invoke ();
+			speed = value;
+		}
+	}
 
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
-	}
-
-	public delegate void SpeedChangeHandler(float quant);
-
-	public event SpeedChangeHandler SpeedChanged;
-
-	public void AddSpeed(float quantity)
-	{
-		speed += quantity;
-		speed = Mathf.Clamp (speed, 0, speedLimit);
-		if (SpeedChanged != null)
-			SpeedChanged (quantity);
-	}
-
-	public void ReduceSpeed(float quantity)
-	{
-		speed -= quantity;
-		speed = Mathf.Clamp (speed, 0, speedLimit);
-		if (SpeedChanged != null)
-			SpeedChanged (quantity);
-	}
-
-	public void SetSpeedMultiplier(float quantity)
-	{
-		speedMultiplier = quantity;
-		if (SpeedChanged != null)
-			SpeedChanged ((quantity - 1) * speed);
-	}
-
-	public float Speed 
-	{
-		get { return speed * speedMultiplier; }
-		set { speed = value; }
 	}
 
 	public Vector2 getDirection4() {

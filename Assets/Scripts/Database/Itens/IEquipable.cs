@@ -5,5 +5,5 @@ public interface IEquipable
 {
 	void Equip (GameObject obj);
 	void UnEquip(GameObject obj);
-	EquipmentType Type { get; set; }
+	Slot Slot { get; set; }
 }
