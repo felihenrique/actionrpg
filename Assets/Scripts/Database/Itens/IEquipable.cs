@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class IEquipable
+public interface IEquipable
 {
 	void Equip (GameObject obj);
 	void UnEquip(GameObject obj);
