@@ -9,6 +9,6 @@ public class Shield : Item, IEquipable
 	public void Equip(GameObject obj) {
 	}
 
-	public void UnEquip(GameObject obj) { 
+	public void UnEquip(GameObject obj) {
 	}
 }

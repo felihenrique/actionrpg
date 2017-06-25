@@ -3,9 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+public enum EquipmentType
+{
+	Weapon,
+	Chestplate,
+	Legs,
+	Boots,
+	Helmet,
+	Pendant,
+	Ring1,
+	Ring2,
+	Shield
+}
+
 public class EquipmentSystem : MonoBehaviour {
 	
-	private HashSet<IEquipable> equips;
+	private Dictionary<EquipmentType, IEquipable> equips;
 
 	public delegate void EquipChangeHandler (IEquipable armor);
 	public event EquipChangeHandler EquipAdded;
@@ -18,7 +31,7 @@ public class EquipmentSystem : MonoBehaviour {
 	void Start () {
 		equips = new HashSet<>();
 	}
-
+		
 	public void Equip(IEquipable equipment) {
 		if (equips.Contains(equipment))
 			return;
