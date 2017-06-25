@@ -22,14 +22,16 @@ public class EquipmentSystem : MonoBehaviour {
 	public void Equip(IEquipable equipment) {
 		if (equips.Contains(equipment))
 			return;
+		equipment.Equip (gameObject);
 		equips.Add (equipment);
 		EquipAdded?.Invoke (equipment);
 	}
 
 	public void Unequip(IEquipable equipment) {
-		if (equips.Contains(equipment)) {
-			EquipRemoved?.Invoke (equipment);
-			equips.Remove (equipment);
-		}
+		if (!equips.Contains (equipment))
+			return;
+		equipment.UnEquip (gameObject);
+		equips.Remove (equipment);
+		EquipRemoved?.Invoke (equipment);
 	}
 }
