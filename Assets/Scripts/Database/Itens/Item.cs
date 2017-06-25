@@ -4,36 +4,42 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+public enum GroupType
+{
+	Assistance = 1,
+	Crafting = 2,
+	Exploration = 3,
+	Treasure = 4,
+	Equipment = 5
+}
+		
+[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Item : MonoBehaviour {
-	public enum GroupType
-	{
-		Assistance = 1,
-		Crafting = 2,
-		Exploration = 3,
-		Treasure = 4,
-		Equipment = 5
-	}
+	public GroupType Group;
+	public DateTime DateAcquired { get; }
+	public string Name;
+	public string Description;
+	public short Price;
+	// Indica se pode usar o método Use()
+	public bool Consumable;
 
 	public Item()
 	{
-		_timeAcquired = DateTime.Now;
+		DateAcquired = DateTime.Now;
 	}
 
-	public DateTime TimeAcquired
-	{
-		get { return _timeAcquired; }
-		set { _timeAcquired = value; }
-	}
-
-	public GroupType group;
-	public bool stackable;
-	public int stackMaxSize;
-	public int stackSize;
-	public string itemName;
-	public string description;
-	public string animationName;
-	public short price;
-	public bool consumable;
 	public virtual void Use(GameObject obj) {}
-	protected DateTime _timeAcquired;
+
+	public override bool Equals (object other)
+	{
+		Item i = other as Item;
+		if (other == null)
+			return false;
+		return i.name == name;
+	}
+
+	public override int GetHashCode ()
+	{
+		return name;
+	}
 }

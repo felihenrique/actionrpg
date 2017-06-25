@@ -5,49 +5,31 @@ using System;
 
 public class EquipmentSystem : MonoBehaviour {
 	
-	private Dictionary<Equipment.EquipmentType, Equipment>  armors;
-	private float totalPhysicalResistance;
-	private float totalMagicalResistance;
+	private HashSet<IEquipable> equips;
 
-	public delegate void EquipChangeHandler (Equipment armor);
+	public delegate void EquipChangeHandler (IEquipable armor);
 	public event EquipChangeHandler EquipAdded;
 	public event EquipChangeHandler EquipRemoved;
+	[HideInInspector]
+	public int TotalPhysicalResistance;
+	[HideInInspector]
+	public int TotalMagicalResistance;
 
 	void Start () {
-		armors = new Dictionary<Equipment.EquipmentType, Equipment> ();
+		equips = new HashSet<>();
 	}
 
-	void updateStatus() {
-		totalPhysicalResistance = 0;
-		totalMagicalResistance = 0;
-		foreach (var armor in armors) {
-			totalPhysicalResistance += armor.Value.physicalResistance;
-			totalMagicalResistance += armor.Value.magicalResistance;
-		}
+	public void Equip(IEquipable equipment) {
+		if (equips.Contains(equipment))
+			return;
+		equips.Add (equipment);
+		EquipAdded?.Invoke (equipment);
 	}
 
-	public float PhysicalResist {
-		get { return totalPhysicalResistance; }
-	}
-
-	public float MagicalResist {
-		get { return totalMagicalResistance; }
-	}
-
-	public void Equip(Equipment equipment) {
-		if (armors.ContainsKey(equipment.type)) 
-			Unequip(equipment);
-		armors.Add (equipment.type, equipment);
-		updateStatus ();
-		if (EquipAdded != null) 
-			EquipAdded (equipment);
-	}
-
-	public void Unequip(Equipment equipment) {
-		if (armors.ContainsKey(equipment.type)) {
-			if (EquipRemoved != null) EquipRemoved (equipment);
-			armors.Remove (equipment.type);
-			updateStatus ();
+	public void Unequip(IEquipable equipment) {
+		if (equips.Contains(equipment)) {
+			EquipRemoved?.Invoke (equipment);
+			equips.Remove (equipment);
 		}
 	}
 }

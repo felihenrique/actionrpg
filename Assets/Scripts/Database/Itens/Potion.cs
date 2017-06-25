@@ -6,10 +6,11 @@ public class Potion : Item
 {
 	public int amountHP;
 	public int amountMP;
+
 	public override void Use (GameObject obj)
 	{
 		HpMpSystem system = obj.GetComponent<HpMpSystem> ();
-		if (system) {
+		if (system != null) {
 			system.GainMP (amountMP);
 			system.GainHP (amountHP);
 		}
