@@ -40,7 +40,7 @@ public class EquipmentSystem : MonoBehaviour {
 	public void Unequip(IEquipable equipment) {
 		if (!equips.ContainsKey(equipment.Slot))
 			return;
-		equipment.UnEquip (gameObject);
+		equipment.UnEquip ();
 		equips.Remove (equipment.Slot);
 		EquipRemoved?.Invoke (equipment);
 	}

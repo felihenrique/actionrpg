@@ -2,13 +2,13 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class Effect : MonoBehaviour, IPoolable
+public abstract class Effect : MonoBehaviour
 {
 	public delegate void EndedHandler (Effect eff);
 	public event EndedHandler Ended;
 
-	protected abstract void Apply();
-	protected abstract void Remove();
+	protected virtual void Apply() {}
+	protected virtual void Remove() {}
 	public Sprite Sprite;
 	public string Name;
 	public string Description;

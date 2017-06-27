@@ -10,11 +10,18 @@ public class Accessory : Durable, IEquipable {
 	public float MagicalAttackMultiplier;
 	public float AttackMultiplier;
 
+	[SerializeField]
+	private Slot slot;
+
+	public Slot Slot { 
+		get { return slot; }
+	}
+
 	public void Equip(GameObject obj) {
 		
 	}
 
-	public void UnEquip(GameObject obj) {
+	public void UnEquip() {
 		
 	}
 }

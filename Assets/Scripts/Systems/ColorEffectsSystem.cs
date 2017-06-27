@@ -1,22 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(HpSystem), typeof(SpriteRenderer))]
 public class ColorEffectsSystem : MonoBehaviour {
 
-	public Color damageColor;
-	public Color envenenomColor;
+	public Color DamageColor;
+	public Color EnvenenomColor;
 
 	private SpriteRenderer sprRenderer;
-	private HpMpSystem hpmpSystem;
+	private HpSystem hpSys;
 
 	void Start () {
 		sprRenderer = GetComponent<SpriteRenderer> ();
-		hpmpSystem = GetComponent<HpMpSystem> ();
-		hpmpSystem.hpChange += onDamage;
+		hpSys = GetComponent<HpSystem> ();
+		hpSys.HpChanged += OnHpChange;
 	}
 
-	void onDamage(float quant) {
-		sprRenderer.color = damageColor;
+	void OnHpChange(float delta) {
+		if (delta < 0)
+			return;
+		
+		var enven = GetComponentInChildren<Envenenon> ();
+
+		if (enven == null)
+			sprRenderer.color = DamageColor;
+		else
+			sprRenderer.color = EnvenenomColor;
 	}
 	
 	// Update is called once per frame

@@ -73,7 +73,6 @@
      <Compile Include="Assets\Scripts\Input\PCInput.cs" />
      <Compile Include="Assets\Scripts\IPoolable.cs" />
      <Compile Include="Assets\Scripts\Systems\AnimationSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\AttackSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\ColorEffectsSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\DamageSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
@@ -82,7 +81,6 @@
      <Compile Include="Assets\Scripts\Systems\MovementSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\MpSystem.cs" />
      <Compile Include="Assets\Scripts\UI\EffectShow.cs" />
-     <Compile Include="Assets\Scripts\UI\HpMpExpShow.cs" />
      <Compile Include="Assets\Scripts\Utils\Vector.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />

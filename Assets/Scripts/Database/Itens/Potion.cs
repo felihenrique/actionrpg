@@ -4,15 +4,17 @@ using System.Runtime.Serialization;
 
 public class Potion : Item
 {
-	public int amountHP;
-	public int amountMP;
+	public int HpGain;
+	public int MpGain;
 
 	public override void Use (GameObject obj)
 	{
-		HpMpSystem system = obj.GetComponent<HpMpSystem> ();
-		if (system != null) {
-			system.GainMP (amountMP);
-			system.GainHP (amountHP);
-		}
+		HpSystem hpSys = obj.GetComponent<HpSystem> ();
+		MpSystem mpSys = obj.GetComponent<MpSystem> ();
+
+		if (hpSys != null)
+			hpSys.Hp += HpGain;
+		if (mpSys != null)
+			mpSys.Mp += MpGain;
 	}
 }

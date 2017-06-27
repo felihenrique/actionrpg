@@ -13,7 +13,7 @@ public class HpSystem : MonoBehaviour {
 	public event HpChangeHandler MaxHpChanged;
 	public event DeathHandler Died;
 	// TODO: Implementar DamageSystem e colocar o evento blocked_damage
-	public int Hp {
+	public float Hp {
 		get { return hp; }
 		set {
 			HpChanged?.Invoke (value - hp);
@@ -23,7 +23,7 @@ public class HpSystem : MonoBehaviour {
 		}
 	}
 
-	public int MaxHp {
+	public float MaxHp {
 		get { return maxhp; }
 		set { 
 			MaxHpChanged?.Invoke (value - maxhp);

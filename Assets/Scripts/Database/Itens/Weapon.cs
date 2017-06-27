@@ -1,16 +1,50 @@
 ﻿using System;
 using UnityEngine;
 
-public class Weapon : Durable, IEquipable
+public class Weapon : Durable, IEquipable, ILevelable
 {
-	public short Attack;
-	public short MagicalAttack;
+	public float Attack;
+	public float MagicAttack;
+	public float LevelupMultiplier;
 
-	public void Equip(GameObject obj) {
-		
+	[SerializeField]
+	private Slot slot;
+	private DamageSystem dmgSys;
+	private int level;
+
+	public Slot Slot { 
+		get { return slot; }
 	}
 
-	public void UnEquip(GameObject obj) {
-		
+	public int Level {
+		get { return level; }
+	}
+
+	private void IncreaseStats() {
+		dmgSys?.ChangeAttack (Attack);
+		dmgSys?.ChangeMagicAttack (MagicAttack);
+	}
+
+	private void DecreaseStats() {
+		dmgSys?.ChangeAttack (-Attack);
+		dmgSys?.ChangeMagicAttack (-MagicAttack);
+	}
+
+	public void Equip(GameObject obj) {
+		dmgSys = obj.GetComponent<DamageSystem> ();
+		IncreaseStats ();
+	}
+
+	public void UnEquip() {
+		DecreaseStats ();
+		dmgSys = null;
+	}
+
+	public void LevelUp() {
+		DecreaseStats ();
+		Attack *= LevelupMultiplier;
+		MagicAttack *= LevelupMultiplier;
+		IncreaseStats ();
+		level++;
 	}
 }

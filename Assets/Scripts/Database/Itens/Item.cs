@@ -17,7 +17,6 @@ public enum GroupType
 public abstract class Item : MonoBehaviour {
 	public GroupType Group;
 	public DateTime DateAcquired { get; }
-	public string Name;
 	public string Description;
 	public short Price;
 	// Indica se pode usar o método Use()
@@ -40,6 +39,6 @@ public abstract class Item : MonoBehaviour {
 
 	public override int GetHashCode ()
 	{
-		return name;
+		return name.GetHashCode();
 	}
 }

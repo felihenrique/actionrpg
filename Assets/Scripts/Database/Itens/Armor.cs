@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Armor : Durable, IEquipable, ILevelable
 {
-	public short PhysicalResistance;
-	public short MagicalResistance;
+	public float PhysicalResistance;
+	public float MagicalResistance;
 	public float HpGain;
 	public float MpGain;
 	public float LevelUpMultiplier;
@@ -12,24 +12,36 @@ public class Armor : Durable, IEquipable, ILevelable
 	private DamageSystem dmgSys;
 	private HpSystem hpSys;
 	private MpSystem mpSys;
+	[SerializeField]
+	private Slot slot;
+	private int level;
 
+	public Slot Slot {
+		get { return slot; }
+	}
+
+	public int Level {
+		get { return level; }
+	}
 
 	private void IncreaseStats() {
-		dmgSys?.TotalPhysicalResistance += PhysicalResistance;
-		dmgSys?.TotalMagicalResistance += MagicalResistance;
+		dmgSys?.ChangePhysicalResistance(PhysicalResistance);
+		dmgSys?.ChangeMagicalResistance(MagicalResistance);
 
-		hpSys?.Hp += HpGain;
-
-		mpSys?.Mp += MpGain;
+		if (hpSys != null) {
+			hpSys.Hp += HpGain;
+			mpSys.Mp += MpGain;
+		}
 	}
 
 	private void DecreaseStats() {
-		dmgSys?.TotalPhysicalResistance -= PhysicalResistance;
-		dmgSys?.TotalMagicalResistance -= MagicalResistance;
+		dmgSys?.ChangePhysicalResistance(-PhysicalResistance);
+		dmgSys?.ChangeMagicalResistance(-MagicalResistance);
 
-		hpSys?.Hp -= HpGain;
-
-		mpSys?.Mp -= MpGain;
+		if (hpSys !=  null) {
+			hpSys.Hp -= HpGain;
+			mpSys.Mp -= MpGain;
+		}
 	}
 
 	public void Equip(GameObject obj) {
@@ -53,5 +65,6 @@ public class Armor : Durable, IEquipable, ILevelable
 		HpGain *= LevelUpMultiplier;
 		MpGain *= LevelUpMultiplier;
 		IncreaseStats ();
+		level++;
 	}
 }
