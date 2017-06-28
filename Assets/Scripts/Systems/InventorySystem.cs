@@ -4,86 +4,68 @@ using System.Collections.Generic;
 
 public class InventorySystem : MonoBehaviour {
 
-	List<Item> itens = new List<Item>();
+	Item[] itens = new Item[30];
 
 	public delegate void ItemHandler (Item item);
-	public delegate void ItemUsedHandler (string name);
-	public event ItemHandler onItemAcquired;
-	public event ItemUsedHandler onItemUse;
 
-	Item FindItem(Item item)
+	public Item Get(int id)
 	{
-		var it = itens.Find ((Item i) => {
-			return i.itemName == item.itemName;
-		});
-		return it;
+		if (id < 0 || id > itens.Length)
+			return null;
+		return itens [id];
 	}
 
-	public void Acquire(Item item)
+	public Item[] GetAll()
 	{
-		Item it = FindItem (item);
-		if (it != null && it.stackable && it.stackSize < it.stackMaxSize) {
-			it.stackSize += item.stackSize;
-			it.stackSize = Mathf.Clamp (it.stackSize, 0, it.stackMaxSize);
-			if (onItemAcquired != null) {
-				onItemAcquired (item);
-			}
+		return itens;
+	}
+
+	public void AddQuantity(int id, int quantity)
+	{
+		if (id < 0 || id > itens.Length)
 			return;
-		}
-		if (onItemAcquired != null) {
-			onItemAcquired (item);
-		}
-		itens.Add (item);
-	}
-
-	public void Remove(Item item)
-	{
-		Item it = FindItem (item);
-		if (it == null)
+		Item i = itens [id];
+		if (i == null)
 			return;
-		if (it.stackSize == 1) {
-			itens.Remove (it);
-			Destroy (it.gameObject);
-		}
-		else
-			it.stackSize--;
+		itens [id].Quantity += quantity;
 	}
 
-	public void RemoveAll(Item item)
+	public void Add(int id, Item item)
 	{
-		Item it = FindItem (item);
-		if (it == null)
+		if (id < 0 || id > itens.Length)
 			return;
-		itens.Remove (it);
-		Destroy (it.gameObject);
+		itens [id] = item;
 	}
 
-	public void UseItem(Item item)
+	public int? FirstEmpty()
 	{
-		Item it = FindItem (item);
-		if (it == null)
-			return; 
-		it.Use (gameObject);
-		it.stackSize--;
-		if (onItemUse != null) {
-			onItemUse (item.name);
+		for (int i = 0; i < itens.Length; i++) {
+			if (itens [i] == null)
+				return i;
 		}
-		if (it.stackSize == 0) {
-			Destroy (it.gameObject);
-		}
+		return null;
 	}
 
-	public void UseItemOn(Item item, GameObject obj)
+	public void Remove(int id)
 	{
-		Item it = FindItem (item);
-		if (it == null)
+		itens [id] = null;
+	}
+
+	public void Expand(int quantity)
+	{
+		System.Array.Resize (ref itens, itens.Length + quantity);
+	}
+
+	public void UseItem(int id, GameObject otherObj=null)
+	{
+		if (id < 0 || id > itens.Length)
 			return;
-		it.Use (obj);
-		it.stackSize--;
-		if (onItemUse != null) {
-			onItemUse (item.name);
-		}
-		if (it.stackSize == 0)
-			Destroy (it.gameObject);
+		Item i = itens [id];
+		if (i == null)
+			return;
+		i.Use (otherObj ?? gameObject);
+		i.Quantity--;
+		if (i.Quantity == 0)
+			Destroy (i.gameObject);
 	}
 }

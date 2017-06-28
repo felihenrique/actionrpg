@@ -24,7 +24,12 @@ public class HideAndAddInventory : MonoBehaviour {
 		if (collider.gameObject.tag != "Player")
 			return;
 		invSystem = collider.gameObject.GetComponent<InventorySystem> ();
-		sprRenderer.enabled = false;
-		invSystem.Acquire (item);
+		int? slot = invSystem.FirstEmpty ();
+		if (slot.HasValue) 
+		{
+			invSystem.Add (slot.Value, item);
+			Destroy (sprRenderer);
+			Destroy (this);
+		}
 	}
 }

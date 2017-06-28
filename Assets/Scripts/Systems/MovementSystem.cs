@@ -21,16 +21,4 @@ public class MovementSystem : MonoBehaviour {
 	{
 		animator = GetComponent<Animator> ();
 	}
-
-	public Vector2 getDirection4() {
-		Vector2 cachedDirection = new Vector2 (animator.GetFloat ("speed_x"), animator.GetFloat ("speed_y"));
-		if (cachedDirection == Vector2.zero) {
-			return Vector2.down;
-		}
-		if (Mathf.Abs(cachedDirection.x) > Mathf.Abs(cachedDirection.y)) {
-			return cachedDirection.x > 0 ? Vector2.right : Vector2.left;
-		} else {
-			return cachedDirection.y > 0 ? Vector2.up : Vector2.down; 
-		}
-	}
 }

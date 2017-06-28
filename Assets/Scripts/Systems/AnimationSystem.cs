@@ -4,18 +4,18 @@ using System.Collections;
 public class AnimationSystem : MonoBehaviour {
 
 	private Animator animator;
-	private CharacterController2D characterController;
+	private new Rigidbody2D rigidbody2D;
 	void Start () {
 		animator = GetComponent<Animator> ();
-		characterController = GetComponent<CharacterController2D> ();
+		rigidbody2D = GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float velocity = characterController.velocity.magnitude;
+		float velocity = rigidbody2D.velocity.magnitude;
 		if (velocity > 0.01f) {
-			animator.SetFloat ("speed_x", characterController.velocity.x);
-			animator.SetFloat ("speed_y", characterController.velocity.y);
+			animator.SetFloat ("speed_x", rigidbody2D.velocity.x);
+			animator.SetFloat ("speed_y", rigidbody2D.velocity.y);
 			animator.SetBool ("moving", true);
 		} else {
 			animator.SetBool ("moving", false);
