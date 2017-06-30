@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class InventorySystem : MonoBehaviour {
 
-	Item[] itens = new Item[30];
+	[SerializeField]
+	private Item[] itens = new Item[30];
 
 	public delegate void ItemHandler (Item item);
 
