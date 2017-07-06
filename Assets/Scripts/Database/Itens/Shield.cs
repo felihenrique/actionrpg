@@ -1,17 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-public class Shield : Durable, IEquipable
+public class Shield : Item
 {
 	public float BlockChance;
 	public float DamageTakenMultiplier;
-
-	[SerializeField]
-	private Slot slot;
-
-	public Slot Slot { 
-		get { return slot; }
-	}
 
 	public void Equip(GameObject obj) {
 	}

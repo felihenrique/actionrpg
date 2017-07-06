@@ -1,24 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-public class Weapon : Durable, IEquipable, ILevelable
+public class Weapon : Item
 {
 	public float Attack;
 	public float MagicAttack;
-	public float LevelupMultiplier;
 
-	[SerializeField]
-	private Slot slot;
 	private DamageSystem dmgSys;
-	private int level;
-
-	public Slot Slot { 
-		get { return slot; }
-	}
-
-	public int Level {
-		get { return level; }
-	}
 
 	private void IncreaseStats() {
 		dmgSys?.ChangeAttack (Attack);
@@ -38,13 +26,5 @@ public class Weapon : Durable, IEquipable, ILevelable
 	public void UnEquip() {
 		DecreaseStats ();
 		dmgSys = null;
-	}
-
-	public void LevelUp() {
-		DecreaseStats ();
-		Attack *= LevelupMultiplier;
-		MagicAttack *= LevelupMultiplier;
-		IncreaseStats ();
-		level++;
 	}
 }

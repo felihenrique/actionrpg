@@ -18,29 +18,30 @@ public enum Slot
 
 public class EquipmentSystem : MonoBehaviour {
 	
-	private Dictionary<Slot, IEquipable> equips;
+    private Dictionary<Slot, Equipable> equips;
 
-	public delegate void EquipChangeHandler (IEquipable armor);
+    public delegate void EquipChangeHandler (Equipable armor);
 	public event EquipChangeHandler EquipAdded;
 	public event EquipChangeHandler EquipRemoved;
 
 	void Start () {
-		equips = new Dictionary<Slot, IEquipable> ();
+        equips = new Dictionary<Slot, Equipable> ();
 	}
 	// TODO: Modificar aqui para colocar EquipmentType
 		
-	public void Equip(IEquipable equipment) {
+    public void Equip(Equipable equipment) {
 		if (equips.ContainsKey(equipment.Slot))
 			return;
-		equipment.Equip (gameObject);
+        object[] param = { gameObject };
+        equipment.GetType().GetMethod("OnEquip").Invoke(equipment, param);
 		equips[equipment.Slot] = equipment;
 		EquipAdded?.Invoke (equipment);
 	}
 
-	public void Unequip(IEquipable equipment) {
+    public void Unequip(Equipable equipment) {
 		if (!equips.ContainsKey(equipment.Slot))
 			return;
-		equipment.UnEquip ();
+        equipment.GetType().GetMethod("OnUnequip").Invoke(equipment, null);
 		equips.Remove (equipment.Slot);
 		EquipRemoved?.Invoke (equipment);
 	}

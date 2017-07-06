@@ -7,7 +7,7 @@ public class Speed : Effect
 	public float Multiplier;
 
 	private MovementSystem movement;
-	private new Animator animator;
+	private Animator animator;
 
 
 	void Start()

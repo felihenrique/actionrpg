@@ -6,12 +6,7 @@ using UnityEditor;
 
 public class ItemEditor : EditorWindow {
 	
-	enum TypeList {
-		Item, 
-		Potion 
-	}
-	TypeList list = TypeList.Item;
-
+    Rigidbody2D plrigid;
 	[MenuItem("Database/Itens")]
 	public static void ShowWindow()
 	{
@@ -21,7 +16,12 @@ public class ItemEditor : EditorWindow {
 	void OnGUI()
 	{
 		GUILayout.BeginArea (new Rect (0, 0, 128, 300));
-		list = (TypeList)EditorGUI.EnumPopup (new Rect (0, 0, 300, 30), "Tipo de item", list);
+        plrigid = (Rigidbody2D)EditorGUILayout.ObjectField(plrigid, typeof(Rigidbody2D), true);
+        bool clicked = GUILayout.Button("Click");
+        if (clicked)
+        {
+            
+        }
 		GUILayout.EndArea ();
 	}
 

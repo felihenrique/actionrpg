@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(HpSystem), typeof(SpriteRenderer))]
+[RequireComponent(typeof(HealthSystem), typeof(SpriteRenderer))]
 public class ColorEffectsSystem : MonoBehaviour {
 
 	public Color DamageColor;
 	public Color EnvenenomColor;
 
 	private SpriteRenderer sprRenderer;
-	private HpSystem hpSys;
+	private HealthSystem hpSys;
 
 	void Start () {
 		sprRenderer = GetComponent<SpriteRenderer> ();
-		hpSys = GetComponent<HpSystem> ();
+		hpSys = GetComponent<HealthSystem> ();
 		hpSys.HpChanged += OnHpChange;
 	}
 

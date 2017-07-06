@@ -7,12 +7,12 @@ public class Envenenon : Effect
 	public float Interval; // em segundos
 	public int Damage;
 
-	private HpSystem hpSys;
+	private HealthSystem hpSys;
 	private float accumTime;
 
 	void Start()
 	{
-		hpSys = transform.parent.GetComponent<HpSystem> ();
+		hpSys = transform.parent.GetComponent<HealthSystem> ();
 	}
 
 	protected override void Update ()

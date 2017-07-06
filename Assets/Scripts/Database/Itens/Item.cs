@@ -16,38 +16,11 @@ public enum GroupType
 [RequireComponent(typeof(SpriteRenderer))]
 public abstract class Item : MonoBehaviour {
 	public GroupType Group;
-	public DateTime DateAcquired { get; }
 	public string Description;
 	public short Price;
 	// Indica se pode usar o método Use()
-	public bool Consumable;
-	public int MaxQuantity;
-
-	private int quantity;
-	public int Quantity {
-		get { return quantity; }
-		set {
-			quantity = Mathf.Clamp (value, 0, MaxQuantity);
-		}
-	}
-
-	public Item()
-	{
-		DateAcquired = DateTime.Now;
-	}
+    public bool Consumable;
+    public bool Stackable;
 
 	public virtual void Use(GameObject obj) {}
-
-	public override bool Equals (object other)
-	{
-		Item i = other as Item;
-		if (other == null)
-			return false;
-		return i.gameObject.name == gameObject.name;
-	}
-
-	public override int GetHashCode ()
-	{
-		return gameObject.name.GetHashCode();
-	}
 }

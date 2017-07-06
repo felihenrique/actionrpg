@@ -9,7 +9,7 @@ public class Potion : Item
 
 	public override void Use (GameObject obj)
 	{
-		HpSystem hpSys = obj.GetComponent<HpSystem> ();
+		HealthSystem hpSys = obj.GetComponent<HealthSystem> ();
 		MpSystem mpSys = obj.GetComponent<MpSystem> ();
 
 		if (hpSys != null)

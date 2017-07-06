@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public struct ItemStack
+{
+    public Item item;
+    public uint quantity;
+}
+
 public class InventorySystem : MonoBehaviour {
-
-	[SerializeField]
-	private Item[] itens = new Item[30];
-
+    private ItemStack[] itens = new ItemStack[30];
+    // TODO: Adaptar essa classe para o novo sistema de contagem de itens, usando o ItemStack
 	public delegate void ItemHandler (Item item);
 
 	public Item Get(int id)
@@ -46,11 +50,15 @@ public class InventorySystem : MonoBehaviour {
 		}
 		return null;
 	}
-
-	public void Remove(int id)
+    // TODO: Implementar esse 
+    public void Remove(int id, int quantity)
 	{
-		itens [id] = null;
+		
 	}
+
+    public void RemoveAll(int id) {
+        
+    }
 
 	public void Expand(int quantity)
 	{

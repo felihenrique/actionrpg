@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Accessory : Durable, IEquipable {
+public class Accessory : Item {
 	
 	public float HpMultiplier;
 	public float MpMultiplier;

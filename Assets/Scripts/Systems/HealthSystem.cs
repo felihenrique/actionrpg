@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HpSystem : MonoBehaviour {
+public class HealthSystem : MonoBehaviour {
 
 	private float hp;
 	private float maxhp;
 
 	public delegate void HpChangeHandler (float delta);
-	public delegate void BlockDamageHandler ();
 	public delegate void DeathHandler ();
 	public event HpChangeHandler HpChanged;
 	public event HpChangeHandler MaxHpChanged;
