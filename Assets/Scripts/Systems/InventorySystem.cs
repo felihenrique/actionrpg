@@ -1,65 +1,157 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
-public struct ItemStack
+public class ItemStack
 {
     public Item item;
-    public uint quantity;
+    public int quantity;
+
+    public ItemStack(Item item, int quant = 1) {
+        this.quantity = quant;
+        this.item = item;
+    }
 }
 
 public class InventorySystem : MonoBehaviour {
+    
     private ItemStack[] itens = new ItemStack[30];
-    // TODO: Adaptar essa classe para o novo sistema de contagem de itens, usando o ItemStack
 	public delegate void ItemHandler (Item item);
 
-	public Item Get(int id)
+    /// <summary>
+    /// Return the id of the first empty slot in the inventory. -1 in case of full inventory.
+    /// </summary>
+    /// <returns>The slot id</returns>
+    private int FirstEmpty()
+    {
+        for (int i = 0; i < itens.Length; i++) {
+            if (itens [i] == null)
+                return i;
+        }
+
+        return -1;
+    }
+
+    private ItemStack Find(Item item) 
+    {
+        return Array.Find(itens, (it) => { return it.item.ItemName == item.ItemName; });
+    }
+
+    private void DestroyItem(int id) {
+        ItemStack itemStack = itens[id];
+        if (itemStack == null)
+            return;
+        itens[id] = null;
+        GameObject.Destroy(itemStack.item.gameObject);
+    }
+
+    /// <summary>
+    /// Get one ItemStack by id.
+    /// </summary>
+    /// <param name="id">Identifier.</param>
+    public ItemStack Get(int id)
 	{
 		if (id < 0 || id > itens.Length)
 			return null;
+        
 		return itens [id];
 	}
 
-	public Item[] GetAll()
+    /// <summary>
+    /// Gets all ItemStack.
+    /// </summary>
+    /// <returns>An array of itens</returns>
+    public ItemStack[] GetAll()
 	{
 		return itens;
 	}
 
-	public void AddQuantity(int id, int quantity)
+    /// <summary>
+    /// Add the specified ItemStack to the inventory. Returns false if cannot add the item 
+    /// (inventory full and/or no stack of the specified item. If the item is not stackable the parameter quantity is ignored.
+    /// </summary>
+    /// <param name="item">Item to add</param>
+    /// <param name="quantity">Quantity of itens to add.</param>
+    /// <returns><c>true</c> if the item added to inventory; otherwise, <c>false</c>.</returns>
+    public bool Add(Item item, int quantity)
 	{
-		if (id < 0 || id > itens.Length)
-			return;
-		Item i = itens [id];
-		if (i == null)
-			return;
-		itens [id].Quantity += quantity;
+        if (item.IsStackable)
+        {
+            ItemStack i = Find(item);
+            if (i != null)
+            {
+                i.quantity += quantity;
+                return true;
+            }
+        }
+
+
+        int slot = FirstEmpty();
+        if (slot == -1)
+        {
+            return false;
+        }
+
+        itens[slot] = new ItemStack(item, item.IsStackable ? quantity : 1);
+
+        return true;
 	}
 
-	public void Add(int id, Item item)
-	{
-		if (id < 0 || id > itens.Length)
-			return;
-		itens [id] = item;
-	}
-
-	public int? FirstEmpty()
-	{
-		for (int i = 0; i < itens.Length; i++) {
-			if (itens [i] == null)
-				return i;
-		}
-		return null;
-	}
-    // TODO: Implementar esse 
-    public void Remove(int id, int quantity)
-	{
-		
-	}
-
-    public void RemoveAll(int id) {
-        
+    /// <summary>
+    /// Determines if the inventory has a empty slot.
+    /// </summary>
+    /// <returns><c>true</c> if the inventory has empty slot; otherwise, <c>false</c>.</returns>
+    public bool HasEmptySlot() 
+    {
+        return FirstEmpty() != -1;
     }
 
+    /// <summary>
+    /// Remove the quantity of itens from the specified id. If the item is not stackable the parameter quantity is ignored.
+    /// </summary>
+    /// <param name="id">Identifier.</param>
+    /// <param name="quantity">Quantity.</param>
+    public void Remove(int id, int quantity)
+	{
+        if (id < 0 || id > itens.Length)
+            return;
+        
+        ItemStack i = itens[id];
+        if (i == null)
+            return;
+        
+        if (i.item.IsStackable)
+        {
+            i.quantity -= quantity;
+            if (i.quantity <= 0)
+            {
+                DestroyItem(id);
+            }
+        }
+        else
+        {
+            DestroyItem(id);
+        }
+	}
+
+    /// <summary>
+    /// Removes all itens of the specified id.
+    /// </summary>
+    /// <param name="id">The id of the item.</param>
+    public void RemoveAll(int id) 
+    {
+        if (itens[id] == null)
+        {
+            return;
+        }
+        DestroyItem(id);
+    }
+
+    /// <summary>
+    /// Expands the inventory by the quantity.
+    /// </summary>
+    /// <param name="quantity">Quantity.</param>
 	public void Expand(int quantity)
 	{
 		System.Array.Resize (ref itens, itens.Length + quantity);
@@ -69,12 +161,13 @@ public class InventorySystem : MonoBehaviour {
 	{
 		if (id < 0 || id > itens.Length)
 			return;
-		Item i = itens [id];
+		ItemStack i = itens [id];
 		if (i == null)
 			return;
-		i.Use (otherObj ?? gameObject);
-		i.Quantity--;
-		if (i.Quantity == 0)
-			Destroy (i.gameObject);
+        
+        i.item.Use (otherObj ?? gameObject);
+        i.quantity--;
+        if (i.quantity == 0)
+            DestroyItem(id);
 	}
 }

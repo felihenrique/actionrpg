@@ -6,9 +6,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
     <ProjectGuid>{F27D6DBB-CB5C-1F5C-7996-1D26BA597097}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -27,6 +26,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,69 +36,70 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Behaviour\HumanoidAI.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\Camera\PixelPerfectCamera.cs" />
-     <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
-     <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />
-     <Compile Include="Assets\Scripts\Database\Effects\Speed.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Acessory.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Armor.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Equipable.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\HideAndAddInventory.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Item.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Potion.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Shield.cs" />
-     <Compile Include="Assets\Scripts\Database\Itens\Weapon.cs" />
-     <Compile Include="Assets\Scripts\Input\MobileInput.cs" />
-     <Compile Include="Assets\Scripts\Input\PCInput.cs" />
-     <Compile Include="Assets\Scripts\IPoolable.cs" />
-     <Compile Include="Assets\Scripts\Systems\AnimationSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\ColorEffectsSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\DamageSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\HealthSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\InventorySystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\MovementSystem.cs" />
-     <Compile Include="Assets\Scripts\Systems\MpSystem.cs" />
-     <Compile Include="Assets\Scripts\UI\EffectShow.cs" />
-     <Compile Include="Assets\Scripts\Utils\Vector.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Timeline">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Scripts\Behaviour\HumanoidAI.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Camera\PixelPerfectCamera.cs" />
+    <Compile Include="Assets\Scripts\Database\Effects\Effect.cs" />
+    <Compile Include="Assets\Scripts\Database\Effects\Envenenon.cs" />
+    <Compile Include="Assets\Scripts\Database\Effects\Speed.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Acessory.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Armor.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Equipable.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\HideAndAddInventory.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Item.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Potion.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Shield.cs" />
+    <Compile Include="Assets\Scripts\Database\Itens\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Input\MobileInput.cs" />
+    <Compile Include="Assets\Scripts\Input\PCInput.cs" />
+    <Compile Include="Assets\Scripts\IPoolable.cs" />
+    <Compile Include="Assets\Scripts\Systems\AnimationSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\ColorEffectsSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\DamageSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\HealthSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\InventorySystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\MovementSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\MpSystem.cs" />
+    <Compile Include="Assets\Scripts\UI\EffectShow.cs" />
+    <Compile Include="Assets\Scripts\Utils\Vector.cs" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\TestRunner\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\TestRunner\net35\unity-custom\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Timeline\RuntimeEditor\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityAnalytics\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityHoloLens\RuntimeEditor\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -108,5 +109,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>

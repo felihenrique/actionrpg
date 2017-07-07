@@ -12,6 +12,8 @@ public class MovementSystem : MonoBehaviour {
 	public float Speed { 
 		get { return speed; } 
 		set {
+            float percent = ((value - speed) / speed) + 1;
+            animator.speed *= percent;
 			SpeedChanged?.Invoke ();
 			speed = value;
 		}

@@ -7,7 +7,6 @@ public class HideAndAddInventory : MonoBehaviour {
 
 	// Use this for initialization
 	SpriteRenderer sprRenderer;
-	InventorySystem invSystem;
 	Item item;
 	void Start () {
 		sprRenderer = GetComponent<SpriteRenderer> ();
@@ -23,13 +22,13 @@ public class HideAndAddInventory : MonoBehaviour {
 	{
 		if (collider.gameObject.tag != "Player")
 			return;
-		invSystem = collider.gameObject.GetComponent<InventorySystem> ();
-		int? slot = invSystem.FirstEmpty ();
-		if (slot.HasValue) 
-		{
-			invSystem.Add (slot.Value, item);
-			Destroy (sprRenderer);
-			Destroy (this);
-		}
+        InventorySystem invSystem = collider.gameObject.GetComponent<InventorySystem> ();
+		bool added = invSystem.Add (item, 1);
+        if (!added)
+        {
+            return;
+        }
+		Destroy (sprRenderer);
+		Destroy (this);
 	}
 }

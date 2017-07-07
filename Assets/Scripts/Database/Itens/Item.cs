@@ -12,15 +12,16 @@ public enum GroupType
 	Treasure = 4,
 	Equipment = 5
 }
-		
-[RequireComponent(typeof(SpriteRenderer))]
-public abstract class Item : MonoBehaviour {
+
+public class Item : MonoBehaviour {
+    public string ItemName;
+    public Sprite Sprite;
 	public GroupType Group;
 	public string Description;
 	public short Price;
 	// Indica se pode usar o método Use()
-    public bool Consumable;
-    public bool Stackable;
+    public bool IsUsable;
+    public bool IsStackable;
 
 	public virtual void Use(GameObject obj) {}
 }
