@@ -7,12 +7,12 @@ public class Envenenon : Effect
 	public float Interval; // em segundos
 	public int Damage;
 
-	private HealthSystem hpSys;
+    private Attributes attr;
 	private float accumTime;
 
 	void Start()
 	{
-		hpSys = transform.parent.GetComponent<HealthSystem> ();
+        attr = transform.parent.GetComponent<Attributes> ();
 	}
 
 	protected override void Update ()
@@ -22,7 +22,7 @@ public class Envenenon : Effect
 		accumTime += Time.deltaTime;
 		if (accumTime >= Interval) {
 			accumTime = 0;
-			hpSys.Hp -= Damage;
+            attr.Add(VariableAttr.HP, -Damage);
 		}
 	}
 }

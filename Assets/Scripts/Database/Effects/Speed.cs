@@ -6,26 +6,26 @@ public class Speed : Effect
 {
 	public float Multiplier;
 
-	private MovementSystem movement;
+    private Character character;
 	private Animator animator;
 
 
 	void Start()
 	{
-		movement = transform.parent.GetComponent<MovementSystem>();
+        character = transform.parent.GetComponent<Character>();
 		animator = transform.parent.GetComponent<Animator> ();
 		Apply();
 	}
 
 	protected override void Apply ()
 	{
-		movement.Speed *= Multiplier;
+        character.Speed *= Multiplier;
 		animator.speed *= Multiplier;
 	}
 
 	protected override void Remove ()
 	{
-		movement.Speed /= Multiplier;
+        character.Speed /= Multiplier;
 		animator.speed /= Multiplier;
 	}
 }

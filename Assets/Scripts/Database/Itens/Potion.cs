@@ -9,12 +9,12 @@ public class Potion : Item
 
 	public override void Use (GameObject obj)
 	{
-		HealthSystem hpSys = obj.GetComponent<HealthSystem> ();
-		MpSystem mpSys = obj.GetComponent<MpSystem> ();
+        Attributes attr = obj.GetComponent<Attributes>();
 
-		if (hpSys != null)
-			hpSys.Hp += HpGain;
-		if (mpSys != null)
-			mpSys.Mp += MpGain;
+        if (attr != null)
+        {
+            attr.Add(VariableAttr.HP, HpGain);
+            attr.Add(VariableAttr.MP, MpGain);
+        }
 	}
 }

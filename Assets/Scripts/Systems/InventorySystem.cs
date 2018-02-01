@@ -15,8 +15,8 @@ public class ItemStack
 }
 
 public class InventorySystem : MonoBehaviour {
-    
-    private ItemStack[] itens = new ItemStack[30];
+
+    private ItemStack[] itens;
 	public delegate void ItemHandler (Item item);
 
     /// <summary>
@@ -33,9 +33,16 @@ public class InventorySystem : MonoBehaviour {
         return -1;
     }
 
+    private void Start()
+    {
+        itens = new ItemStack[30];
+    }
+
     private ItemStack Find(Item item) 
     {
-        return Array.Find(itens, (it) => { return it.item.ItemName == item.ItemName; });
+        return Array.Find(itens, (it) => {
+            return it != null && it.item.ItemName == item.ItemName;
+        });
     }
 
     private void DestroyItem(int id) {

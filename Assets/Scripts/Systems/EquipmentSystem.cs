@@ -16,6 +16,7 @@ public enum Slot
 	Shield
 }
 
+[RequireComponent(typeof(Attributes))]
 public class EquipmentSystem : MonoBehaviour {
 	
     private Dictionary<Slot, Equipable> equips;

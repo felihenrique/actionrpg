@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEditor;
 
 public class ItemEditor : EditorWindow {
-	
     Rigidbody2D plrigid;
 	[MenuItem("Database/Itens")]
 	public static void ShowWindow()
 	{
-		EditorWindow.GetWindow (typeof(ItemEditor));
+        Debug.Log(sizeof(GroupType));
+		//EditorWindow.GetWindow (typeof(ItemEditor));
 	}
 
 	void OnGUI()

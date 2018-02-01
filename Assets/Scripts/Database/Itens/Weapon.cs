@@ -6,25 +6,25 @@ public class Weapon : Item
 	public float Attack;
 	public float MagicAttack;
 
-	private DamageSystem dmgSys;
+    private Attributes attr;
 
 	private void IncreaseStats() {
-		dmgSys?.ChangeAttack (Attack);
-		dmgSys?.ChangeMagicAttack (MagicAttack);
+        attr.AddFixed(FixedAttr.Attack, Attack);
+        attr.AddFixed(FixedAttr.MagicAttack, MagicAttack);
 	}
 
 	private void DecreaseStats() {
-		dmgSys?.ChangeAttack (-Attack);
-		dmgSys?.ChangeMagicAttack (-MagicAttack);
+        attr.AddFixed(FixedAttr.Attack, -Attack);
+        attr.AddFixed(FixedAttr.MagicAttack, -MagicAttack);
 	}
 
 	public void Equip(GameObject obj) {
-		dmgSys = obj.GetComponent<DamageSystem> ();
+        attr = obj.GetComponent<Attributes> ();
 		IncreaseStats ();
 	}
 
 	public void UnEquip() {
 		DecreaseStats ();
-		dmgSys = null;
+        attr = null;
 	}
 }
