@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Weapon : Item
+public class Weapon : Equipable
 {
 	public float Attack;
 	public float MagicAttack;
@@ -9,21 +9,27 @@ public class Weapon : Item
     private Attributes attr;
 
 	private void IncreaseStats() {
-        attr.AddFixed(FixedAttr.Attack, Attack);
-        attr.AddFixed(FixedAttr.MagicAttack, MagicAttack);
+        if (attr != null)
+        {
+            attr.AddFixed(FixedAttr.Attack, Attack);
+            attr.AddFixed(FixedAttr.MagicAttack, MagicAttack);
+        }
 	}
 
 	private void DecreaseStats() {
-        attr.AddFixed(FixedAttr.Attack, -Attack);
-        attr.AddFixed(FixedAttr.MagicAttack, -MagicAttack);
+        if (attr != null)
+        {
+            attr.AddFixed(FixedAttr.Attack, -Attack);
+            attr.AddFixed(FixedAttr.MagicAttack, -MagicAttack);
+        }
 	}
 
-	public void Equip(GameObject obj) {
+    private override void OnEquip(GameObject obj) {
         attr = obj.GetComponent<Attributes> ();
 		IncreaseStats ();
 	}
 
-	public void UnEquip() {
+    private override void OnUnequip() {
 		DecreaseStats ();
         attr = null;
 	}

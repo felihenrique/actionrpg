@@ -2,26 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Accessory : Item {
+public class Accessory : Equipable {
 	
 	public float HpMultiplier;
 	public float MpMultiplier;
 	public float MagicalAttackMultiplier;
 	public float AttackMultiplier;
 
-	[SerializeField]
-	private Slot slot;
+    private Attributes attr;
 
-	public Slot Slot { 
-		get { return slot; }
+    private void IncreaseStats()
+    {
+        if (attr != null)
+        {
+            attr.AddFixed(FixedAttr.HpMultiplier, HpMultiplier);
+            attr.AddFixed(FixedAttr.MpMultiplier, MpMultiplier);
+            attr.AddFixed(FixedAttr.MagicAttackMultiplier, MagicalAttackMultiplier);
+            attr.AddFixed(FixedAttr.AttackMultiplier, AttackMultiplier);
+        }
+    }
+
+    private void DecreaseStats()
+    {
+        if (attr != null)
+        {
+            attr.AddFixed(FixedAttr.HpMultiplier, -HpMultiplier);
+            attr.AddFixed(FixedAttr.MpMultiplier, -MpMultiplier);
+            attr.AddFixed(FixedAttr.MagicAttackMultiplier, -MagicalAttackMultiplier);
+            attr.AddFixed(FixedAttr.AttackMultiplier, -AttackMultiplier);
+        }
+    }
+
+    private override void OnEquip(GameObject obj) {
+        attr = obj.GetComponent<Attributes>();
 	}
 
-	public void Equip(GameObject obj) {
-		
-	}
-
-	public void UnEquip() {
+    private override void OnUnequip() {
 		
 	}
 }

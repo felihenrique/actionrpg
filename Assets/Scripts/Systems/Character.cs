@@ -7,7 +7,7 @@ using UnityEngine;
 public class Character : MonoBehaviour {
     [SerializeField]
     private float speed = 0.5f;
-    private new Animator animator;
+    private Animator animator;
     private new Rigidbody2D rigidbody2D;
 
     public delegate void SpeedChangeDel();

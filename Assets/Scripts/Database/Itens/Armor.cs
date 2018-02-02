@@ -11,31 +11,34 @@ public class Armor : Equipable
     private Attributes attr;
 
 	private void IncreaseStats() {
-        attr.AddFixed(FixedAttr.PhysicalResistance, PhysicalResistance);
-        attr.AddFixed(FixedAttr.MagicalResistance, MagicalResistance); 
-
-        if (attr != null) {
+        if (attr != null) 
+        {
+            attr.AddFixed(FixedAttr.PhysicalResistance, PhysicalResistance);
+            attr.AddFixed(FixedAttr.MagicalResistance, MagicalResistance); 
             attr.AddMax(VariableAttr.HP, MaxHpGain);
             attr.AddMax(VariableAttr.MP, MaxMpGain);
 		}
 	}
 
-	private void DecreaseStats() {
-        attr.AddFixed(FixedAttr.PhysicalResistance, -PhysicalResistance);
-        attr.AddFixed(FixedAttr.MagicalResistance, -MagicalResistance); 
-
-        if (attr != null) {
+	private void DecreaseStats() 
+    {
+        if (attr != null) 
+        {
             attr.AddMax(VariableAttr.HP, -MaxHpGain);
             attr.AddMax(VariableAttr.MP, -MaxMpGain);
+            attr.AddFixed(FixedAttr.PhysicalResistance, -PhysicalResistance);
+            attr.AddFixed(FixedAttr.MagicalResistance, -MagicalResistance); 
         }
 	}
 
-    protected override void OnEquip(GameObject obj) {
+    protected override void OnEquip(GameObject obj) 
+    {
         attr = obj.GetComponent<Attributes> ();
 		IncreaseStats ();
 	}
 
-    protected override void OnUnequip() {
+    protected override void OnUnequip() 
+    {
 		DecreaseStats ();
         attr = null;
 	}
