@@ -122,10 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 223072778}
   - component: {fileID: 223072777}
-  - component: {fileID: 223072776}
   - component: {fileID: 223072775}
   - component: {fileID: 223072774}
-  - component: {fileID: 223072779}
+  - component: {fileID: 223072776}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -147,13 +146,34 @@ Behaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 223072773}
   m_Enabled: 1
---- !u!92 &223072776
-Behaviour:
+--- !u!114 &223072776
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 223072773}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c361122e1a798341a8cba3527368937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCameraHalfWidthEnabled: 0
+  maxCameraHalfHeightEnabled: 0
+  maxCameraHalfWidth: 3
+  maxCameraHalfHeight: 2
+  targetDimension: 1
+  targetCameraHalfWidth: 2
+  targetCameraHalfHeight: 1.5
+  pixelPerfect: 1
+  retroSnap: 0
+  assetsPixelsPerUnit: 100
+  showHUD: 0
+  cameraSize: {x: 3.565, y: 1.835}
+  contraintUsed: 0
+  cameraPixelsPerUnit: 100
+  ratio: 1
+  nativeAssetResolution: {x: 713, y: 367}
+  fovCoverage: 1.2233334
 --- !u!20 &223072777
 Camera:
   m_ObjectHideFlags: 0
@@ -174,7 +194,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.4335938
+  orthographic size: 1.835
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -183,8 +203,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -203,34 +223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &223072779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 223072773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a94561037698474f8cdb19e752ad436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxCameraHalfWidthEnabled: 0
-  maxCameraHalfHeightEnabled: 0
-  maxCameraHalfWidth: 3
-  maxCameraHalfHeight: 2
-  targetDimension: 0
-  targetCameraHalfWidth: 3.2
-  targetCameraHalfHeight: 2.86
-  pixelPerfect: 1
-  retroSnap: 0
-  assetsPixelsPerUnit: 128
-  showHUD: 0
-  cameraSize: {x: 2.7851562, y: 1.4335938}
-  contraintUsed: 0
-  cameraPixelsPerUnit: 128
-  ratio: 1
-  nativeAssetResolution: {x: 713, y: 367}
-  fovCoverage: 0.8703613
 --- !u!1 &507444047
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +237,8 @@ GameObject:
   - component: {fileID: 507444056}
   - component: {fileID: 507444050}
   - component: {fileID: 507444048}
+  - component: {fileID: 507444052}
+  - component: {fileID: 507444051}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -263,8 +257,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c389350a015a684cac4bcbaf7e1ff44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributesList: []
-  fixedAttributesList: []
+  attributesList:
+  - type: 0
+    initialMax: 100
+  - type: 1
+    initialMax: 100
+  - type: 2
+    initialMax: 100
+  fixedAttributesList:
+  - type: 0
+    initial: 0
+  - type: 1
+    initial: 0
+  - type: 4
+    initial: 0
+  - type: 6
+    initial: 0
 --- !u!212 &507444049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -299,15 +307,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 620eb99a6455a584ab8018d2961308b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4b6acd242490774a8f9f9706cbedfe3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6666667, y: 1}
+  m_Size: {x: 0.32, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!114 &507444050
 MonoBehaviour:
@@ -321,6 +329,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+--- !u!114 &507444051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507444047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c5f82f07c3f1d488cd0934c467bb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &507444052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507444047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979c6b780548ec745b2d0f67ee925d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itens:
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
 --- !u!61 &507444053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -337,8 +388,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.375}
-    newSize: {x: 0.6666667, y: 1}
+    oldSize: {x: 0.32, y: 0.48}
+    newSize: {x: 0.32, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

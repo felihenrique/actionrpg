@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f68d17cefbc404da9b1bc485eaffc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Mortum
   icon: {fileID: 21300344, guid: b425a588a8fd8a34c9d9675201b33643, type: 3}
   description: "Causa dano at\xE9 a morte"
   duration: 0
