@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using RPG.Itens;
 
 public class ItemStack
 {
@@ -41,7 +42,7 @@ public class InventorySystem : MonoBehaviour {
     private ItemStack Find(Item item) 
     {
         return Array.Find(itens, (it) => {
-            return it != null && it.item.ItemName == item.ItemName;
+            return it != null && it.item.name == item.name;
         });
     }
 
@@ -83,7 +84,7 @@ public class InventorySystem : MonoBehaviour {
     /// <returns><c>true</c> if the item added to inventory; otherwise, <c>false</c>.</returns>
     public bool Add(Item item, int quantity)
 	{
-        if (item.IsStackable)
+        if (item.isStackable)
         {
             ItemStack i = Find(item);
             if (i != null)
@@ -100,7 +101,7 @@ public class InventorySystem : MonoBehaviour {
             return false;
         }
 
-        itens[slot] = new ItemStack(item, item.IsStackable ? quantity : 1);
+        itens[slot] = new ItemStack(item, item.isStackable ? quantity : 1);
 
         return true;
 	}
@@ -128,7 +129,7 @@ public class InventorySystem : MonoBehaviour {
         if (i == null)
             return;
         
-        if (i.item.IsStackable)
+        if (i.item.isStackable)
         {
             i.quantity -= quantity;
             if (i.quantity <= 0)

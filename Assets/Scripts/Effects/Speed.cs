@@ -2,20 +2,24 @@
 using UnityEngine;
 using System.Collections;
 
-public class Speed : Effect
+namespace RPG.Effects
 {
-	public float multiplier;
-
-    private Character character;
-
-    protected override void OnInit(GameObject obj)
+    public class Speed : Effect
     {
-        character = obj.GetComponent<Character>();
-        character.Speed *= multiplier;
-    }
+        public float multiplier;
 
-    protected override void OnEnd()
-    {
-        character.Speed /= multiplier;
+        private Character character;
+
+        protected override void OnInit(GameObject obj)
+        {
+            character = obj.GetComponent<Character>();
+            character.Speed *= multiplier;
+        }
+
+        protected override void OnEnd()
+        {
+            character.Speed /= multiplier;
+        }
     }
 }
+

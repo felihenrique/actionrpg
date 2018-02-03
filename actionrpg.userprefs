@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{DDD61BA7-A205-D63E-77CC-C1BF0DD15D1C}|Testes de Unidade">
+﻿<Properties StartupConfiguration="{DDD61BA7-A205-D63E-77CC-C1BF0DD15D1C}|Testes de Unidade" StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -8,5 +8,17 @@
       <Breakpoint file="C:\Users\philipe\Desktop\actionrpg\Assets\Scripts\Input\PCInput.cs" line="23" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Behaviour\HideAndAddInventory.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Effects\Effect.cs" Line="9" Column="28" />
+      <File FileName="Assets\Scripts\Itens\Item.cs" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\Itens\Equipable.cs" Line="8" Column="12" />
+      <File FileName="Assets\Scripts\Systems\Attributes.cs" Line="52" Column="5" />
+      <File FileName="Assets\Scripts\Systems\EquipmentSystem.cs" Line="30" Column="9" />
+      <File FileName="Assets\Scripts\Effects\HpRecovery.cs" Line="16" Column="9" />
+      <File FileName="Assets\Scripts\Effects\Damage.cs" Line="9" Column="24" />
+      <File FileName="Assets\Scripts\Systems\InventorySystem.cs" Line="5" Column="17" />
+      <File FileName="Assets\Scripts\Behaviour\HideAndAddInventory.cs" Line="31" Column="6" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

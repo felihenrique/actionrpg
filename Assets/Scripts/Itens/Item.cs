@@ -4,24 +4,33 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public enum GroupType
+namespace RPG.Itens
 {
-	Assistance = 1,
-	Crafting = 2,
-	Exploration = 3,
-	Treasure = 4,
-	Equipment = 5
-}
+    public enum GroupType
+    {
+        Assistance = 1,
+        Crafting = 2,
+        Exploration = 3,
+        Treasure = 4,
+        Equipment = 5
+    }
 
-public class Item : MonoBehaviour {
-    public string ItemName;
-    public Sprite Sprite;
-	public GroupType Group;
-	public string Description;
-	public short Price;
-	// Indica se pode usar o método Use()
-    public bool IsUsable;
-    public bool IsStackable;
+    public class Item : MonoBehaviour {
+        public Sprite icon;
+        public GroupType group;
+        public string description;
+        public short price;
+        // Indica se pode usar o método Use()
+        public bool isUsable;
+        public bool isStackable;
+        public GameObject effectAplied;
 
-	public virtual void Use(GameObject obj) {}
+        public virtual void Use(GameObject obj) 
+        {
+            if (effectAplied != null)
+            {
+                Instantiate(effectAplied, obj.transform);
+            }
+        }
+    }   
 }
