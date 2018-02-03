@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{DDD61BA7-A205-D63E-77CC-C1BF0DD15D1C}|Testes de Unidade" StartupItem="Assembly-CSharp.csproj">
+﻿<Properties StartupConfiguration="{DDD61BA7-A205-D63E-77CC-C1BF0DD15D1C}|Testes de Unidade">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -8,14 +8,5 @@
       <Breakpoint file="C:\Users\philipe\Desktop\actionrpg\Assets\Scripts\Input\PCInput.cs" line="23" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Systems\Attributes.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Database\Itens\Armor.cs" Line="33" Column="5" />
-      <File FileName="Assets\Scripts\Database\Itens\Weapon.cs" Line="26" Column="5" />
-      <File FileName="Assets\Scripts\Database\Itens\Equipable.cs" Line="10" Column="31" />
-      <File FileName="Assets\Scripts\Database\Itens\Acessory.cs" Line="32" Column="56" />
-      <File FileName="Assets\Scripts\Database\Itens\Shield.cs" Line="7" Column="34" />
-      <File FileName="Assets\Scripts\Systems\Attributes.cs" Line="15" Column="24" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
 </Properties>
