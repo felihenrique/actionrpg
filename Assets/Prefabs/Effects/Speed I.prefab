@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1299604326964178}
+  m_RootGameObject: {fileID: 1430880810147952}
   m_IsPrefabParent: 1
---- !u!1 &1299604326964178
+--- !u!1 &1430880810147952
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4060477844943208}
-  - component: {fileID: 114302263377136486}
+  - component: {fileID: 4404569653620304}
+  - component: {fileID: 114930893574460758}
   m_Layer: 0
   m_Name: Speed I
   m_TagString: Untagged
@@ -27,34 +27,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4060477844943208
+--- !u!4 &4404569653620304
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1299604326964178}
+  m_GameObject: {fileID: 1430880810147952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2081447, y: -0.14531226, z: 0.021641463}
+  m_LocalPosition: {x: -1.3941107, y: -0.47186664, z: 0.18326376}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114302263377136486
+--- !u!114 &114930893574460758
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1299604326964178}
+  m_GameObject: {fileID: 1430880810147952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3970955444a7b7e44b24e6e3ce4caa52, type: 3}
+  m_Script: {fileID: 11500000, guid: 8924ce67f7f074249bdece478c6e50ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300734, guid: 1b0d063a180da9e4ba1aea0e42c8ea7c, type: 3}
   effectName: Speed I
-  description: Aumenta 30% durante 1min a velocidade do character.
+  icon: {fileID: 21300734, guid: b425a588a8fd8a34c9d9675201b33643, type: 3}
+  description: Aumenta a velocidade em 20% durante 1 min.
   duration: 60
   tickInterval: 0
   infinite: 0
-  multiplier: 1.3
+  multiplier: 1.2

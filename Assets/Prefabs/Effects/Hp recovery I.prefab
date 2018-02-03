@@ -9,51 +9,52 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1140413807620318}
+  m_RootGameObject: {fileID: 1999405482196660}
   m_IsPrefabParent: 1
---- !u!1 &1140413807620318
+--- !u!1 &1999405482196660
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4249856865596986}
-  - component: {fileID: 114387379997310350}
+  - component: {fileID: 4195722286970884}
+  - component: {fileID: 114835246952011088}
   m_Layer: 0
-  m_Name: Hp recovery I
+  m_Name: Hp Recovery I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4249856865596986
+--- !u!4 &4195722286970884
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1140413807620318}
+  m_GameObject: {fileID: 1999405482196660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2081447, y: -0.14531226, z: 0.021641463}
+  m_LocalPosition: {x: -1.3941107, y: -0.47186664, z: 0.18326376}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114387379997310350
+--- !u!114 &114835246952011088
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1140413807620318}
+  m_GameObject: {fileID: 1999405482196660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bee816c4d0e47c242a2f4753e1e864d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 70d7c195a2488ac4ea0d5127d9a77ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300070, guid: 1b0d063a180da9e4ba1aea0e42c8ea7c, type: 3}
-  description: Recupera uma pequena quantidade de HP periodicamente, durante 1 min.
-  duration: 60
-  tickInterval: 2
+  effectName: Hp Recovery I
+  icon: {fileID: 21300070, guid: b425a588a8fd8a34c9d9675201b33643, type: 3}
+  description: Recupera 5 hp por turno durante 15 segundos.
+  duration: 15
+  tickInterval: 3
   infinite: 0
-  quantityPerTick: 3
+  quantityPerTick: 5

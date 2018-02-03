@@ -1,25 +1,24 @@
-﻿<Properties StartupConfiguration="{F27D6DBB-CB5C-1F5C-7996-1D26BA597097}|Unity">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties StartupConfiguration="{F27D6DBB-CB5C-1F5C-7996-1D26BA597097}|Unity" StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Felipe\Desktop\actionrpg\Assets\Scripts\UI\HpMpExpShow.cs" line="35" column="1" />
       <Breakpoint file="C:\Users\Felipe\Desktop\actionrpg\Assets\Scripts\Systems\InventorySystem.cs" line="36" column="1" />
       <Breakpoint file="C:\Users\philipe\Desktop\actionrpg\Assets\Scripts\Input\PCInput.cs" line="23" column="1" />
-      <Breakpoint file="C:\Users\philipe\Desktop\projetos\actionrpg\Assets\Scripts\Systems\InventorySystem.cs" relfile="Assets\Scripts\Systems\InventorySystem.cs" line="84" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Itens\Item.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Systems\InventorySystem.cs">
     <Files>
-      <File FileName="Assets\Scripts\Effects\Effect.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Itens\Item.cs" Line="1" Column="19" />
-      <File FileName="Assets\Scripts\Itens\Equipable.cs" Line="20" Column="9" />
-      <File FileName="Assets\Scripts\Systems\EquipmentSystem.cs" Line="58" Column="1" />
-      <File FileName="Assets\Scripts\Systems\InventorySystem.cs" Line="101" Column="47" />
-      <File FileName="Assets\Scripts\Behaviour\HideAndAddInventory.cs" Line="28" Column="45" />
-      <File FileName="Assets\Scripts\Systems\Character.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\Effects\Effect.cs" Line="9" Column="34" />
+      <File FileName="Assets\Scripts\Itens\Item.cs" Line="37" Column="28" />
+      <File FileName="Assets\Scripts\Itens\Equipable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Systems\EquipmentSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Systems\InventorySystem.cs" Line="193" Column="1" />
+      <File FileName="Assets\Scripts\Behaviour\HideAndAddInventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Systems\Character.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Instance.Unity Editor" />
 </Properties>
