@@ -18,13 +18,9 @@ namespace RPG.Itens
         protected AttributeList[] attributeList;
         protected Attributes attr;
 
-        void Start()
-        {
-            attr = GetComponent<Attributes>();
-        }
-
         protected virtual void OnEquip(GameObject obj)
         {
+            attr = obj.GetComponent<Attributes>();
             for (int i = 0; i < attributeList.Length; i++)
             {
                 attr.AddFixed(attributeList[i].type, attributeList[i].quantity);

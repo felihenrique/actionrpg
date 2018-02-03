@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Runtime.Serialization;
-using System.Collections;
-using System.Collections.Generic;
 using System;
 
 namespace RPG.Itens
@@ -15,7 +12,9 @@ namespace RPG.Itens
         Equipment = 5
     }
 
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Item : MonoBehaviour {
+        public string itemName;
         public Sprite icon;
         public GroupType group;
         public string description;
@@ -31,6 +30,11 @@ namespace RPG.Itens
             {
                 Instantiate(effectAplied, obj.transform);
             }
+        }
+
+        public override string ToString()
+        {
+            return itemName;
         }
     }   
 }

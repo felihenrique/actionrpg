@@ -20,7 +20,8 @@ namespace RPG.Systems
     }
 
     [RequireComponent(typeof(Attributes))]
-    public class EquipmentSystem : MonoBehaviour {
+    public class EquipmentSystem : MonoBehaviour 
+    {
 
         private Dictionary<Slot, Equipable> equips;
 
@@ -40,7 +41,9 @@ namespace RPG.Systems
             object[] param = { gameObject };
             equipment.GetType().GetMethod("OnEquip").Invoke(equipment, param);
             equips[equipment.slot] = equipment;
-            EquipAdded?.Invoke (equipment);
+            if (EquipAdded != null) {
+                EquipAdded (equipment);
+            }
         }
 
         public void Unequip(Equipable equipment) 
@@ -49,7 +52,9 @@ namespace RPG.Systems
                 return;
             equipment.GetType().GetMethod("OnUnequip").Invoke(equipment, null);
             equips.Remove (equipment.slot);
-            EquipRemoved?.Invoke (equipment);
+            if (EquipRemoved != null) {
+                EquipRemoved (equipment);
+            }
         }
     }   
 }

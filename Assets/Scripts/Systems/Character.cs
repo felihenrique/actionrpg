@@ -18,7 +18,9 @@ public class Character : MonoBehaviour {
         set {
             float percent = ((value - speed) / speed) + 1;
             animator.speed *= percent;
-            SpeedChanged?.Invoke ();
+            if (SpeedChanged != null) {
+                SpeedChanged ();
+            }
             speed = value;
         }
     }

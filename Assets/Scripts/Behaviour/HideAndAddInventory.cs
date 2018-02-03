@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Itens;
+using RPG.Systems;
 
 namespace RPG.Behaviour
 {
@@ -20,12 +21,16 @@ namespace RPG.Behaviour
         {
             if (collider.gameObject.tag != "Player")
                 return;
-            InventorySystem invSystem = collider.gameObject.GetComponent<InventorySystem>();
+            var invSystem = collider.gameObject.GetComponent<InventorySystem>();
             bool added = invSystem.Add(item, 1);
             if (added)
             {
-                Destroy(sprRenderer);
+                sprRenderer.enabled = false;
                 Destroy(this);
+            }
+            else
+            {
+                print("Não foi possível adicionar o item ao inventário");
             }
         }
     }   

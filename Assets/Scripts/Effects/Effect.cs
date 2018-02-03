@@ -6,6 +6,7 @@ namespace RPG.Effects
 {
     public abstract class Effect : MonoBehaviour
     {
+        public Effect effectName;
         public Sprite icon;
         public string description;
         public float duration;
