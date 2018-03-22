@@ -57,7 +57,7 @@ public class AttributeSystem : MonoBehaviour {
         public float value;
         [NonSerialized]
         public float additional;
-
+        // TODO: Adicionar a curva aqui
         public virtual void LevelUp(float normalizedLevel)
         {
             value = initial + maxLevelValue * normalizedLevel;
