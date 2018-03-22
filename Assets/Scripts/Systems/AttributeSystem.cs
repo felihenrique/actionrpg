@@ -46,6 +46,7 @@ public enum FixedAttributes
 public class AttributeSystem : MonoBehaviour {
     abstract class Attribute
     {
+    //TODO : Adicionar esses atributos no sistema de classe
         [SerializeField]
         protected float maxLevelValue;
         [SerializeField]
