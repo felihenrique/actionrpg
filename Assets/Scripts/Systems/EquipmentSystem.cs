@@ -16,7 +16,7 @@ public enum Slot
     Shield
 }
 
-[RequireComponent(typeof(Attributes))]
+[RequireComponent(typeof(AttributeSystem))]
 public class EquipmentSystem : MonoBehaviour 
 {
 

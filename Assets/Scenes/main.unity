@@ -168,11 +168,11 @@ MonoBehaviour:
   retroSnap: 0
   assetsPixelsPerUnit: 100
   showHUD: 0
-  cameraSize: {x: 3.565, y: 1.835}
+  cameraSize: {x: 3.585, y: 1.835}
   contraintUsed: 0
   cameraPixelsPerUnit: 100
   ratio: 1
-  nativeAssetResolution: {x: 713, y: 367}
+  nativeAssetResolution: {x: 717, y: 367}
   fovCoverage: 1.2233334
 --- !u!20 &223072777
 Camera:

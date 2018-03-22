@@ -6,11 +6,11 @@ public class Damage : Effect
 {
     public int damage;
 
-    private Attributes attr;
+    private AttributeSystem attr;
 
     protected override void OnInit(GameObject obj)
     {
-        attr = obj.GetComponent<Attributes>();
+        attr = obj.GetComponent<AttributeSystem>();
     }
 
     protected override void OnTick()

@@ -62,10 +62,11 @@
      <Compile Include="Assets\Scripts\Effects\Speed.cs" />
      <Compile Include="Assets\Scripts\Itens\Equipable.cs" />
      <Compile Include="Assets\Scripts\Itens\Item.cs" />
-     <Compile Include="Assets\Scripts\Systems\Attributes.cs" />
+     <Compile Include="Assets\Scripts\Systems\AttributeSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\Character.cs" />
      <Compile Include="Assets\Scripts\Systems\EquipmentSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Systems\LevelSystem.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

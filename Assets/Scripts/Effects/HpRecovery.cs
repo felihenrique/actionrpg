@@ -5,11 +5,11 @@ public class HpRecovery : Effect
 {
     public float quantityPerTick;
 
-    Attributes attr;
+    AttributeSystem attr;
 
     protected override void OnInit(UnityEngine.GameObject obj)
     {
-        attr = obj.GetComponent<Attributes>();
+        attr = obj.GetComponent<AttributeSystem>();
     }
 
     protected override void OnTick()
